@@ -1,0 +1,36 @@
+{
+  "name": "PXDperience",
+  "version": "0.1.0",
+  "description": "A data-API for things to do in Portland",
+  "main": "server.js",
+  "scripts": {
+    "pretest": "eslint *.js",
+    "test": "mocha --timeout 5000",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PDXperience/PDXperience.git"
+  },
+  "author": "Gloria Anholt",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "git+https://github.com/PDXperience/PDXperience#issues"
+  },
+  "homepage": "https://github.com/PDXperience/PDXperience#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.9.0",
+    "mocha": "^3.1.2",
+    "path": "^0.12.7"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.5",
+    "morgan": "^1.7.0"
+  }
+}
