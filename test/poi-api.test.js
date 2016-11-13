@@ -47,6 +47,23 @@ describe('Poi:', () => {
       .catch(done);
   });
 
+  it('POSTs a new poi', done => {
+    request
+      .post('/api/admin')
+      .set('authorization', token)
+      .send(somePark)
+      .then(res => {
+        const poi = res.body;
+        assert.ok(poi._id);
+        somePark.__v = 0;
+        somePark._id = poi._id;
+        somePark.reviews = poi.reviews;
+        done();
+      })
+      .catch(done);
+
+  });
+
  
 
 });
