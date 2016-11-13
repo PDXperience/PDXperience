@@ -75,6 +75,16 @@ describe('Poi:', () => {
       .catch(done);
   });
 
+  it('GETs all after post', done => {
+    request
+      .get('/api')
+      .then(res => {
+        assert.deepEqual(res.body, [somePark]);
+        done();
+      })
+      .catch(done);
+  });
+
  
 
 });
