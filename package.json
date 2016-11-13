@@ -1,11 +1,11 @@
 {
-  "name": "PXDperience",
+  "name": "PDXperience",
   "version": "0.1.0",
   "description": "A data-API for things to do in Portland",
   "main": "server.js",
   "scripts": {
     "pretest": "eslint *.js",
-    "test": "mocha --timeout 5000",
+    "test": "MONGODB_URI=mongodb://localhost/PDXperience-test mocha --timeout 5000",
     "start": "node server.js"
   },
   "repository": {
