@@ -37,6 +37,16 @@ describe('Poi:', () => {
     hours: 'dawn to dusk'
   };
 
+  it('GETs all', done => {
+    request
+      .get('/api')
+      .then( res => {
+        assert.deepEqual(res.body, []);
+        done();
+      })
+      .catch(done);
+  });
+
  
 
 });
