@@ -61,7 +61,18 @@ describe('Poi:', () => {
         done();
       })
       .catch(done);
+  });
 
+  it('GETs by id', done => {
+    request
+      .get(`/api/id/${somePark._id}`)
+      .set('authorization', token)
+      .then(res => {
+        const poi = res.body;
+        assert.deepEqual(poi, somePark);
+        done();
+      })
+      .catch(done);
   });
 
  
