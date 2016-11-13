@@ -85,6 +85,17 @@ describe('Poi:', () => {
       .catch(done);
   });
 
+  it('DELETEs an artist', done => {
+    request
+      .delete(`/api/admin/id/${somePark._id}`)
+      .set('authorization', token)
+      .then(res => {
+        assert.deepEqual(res.body, somePark);
+        done();
+      })
+      .catch(done);
+  });
+
  
 
 });
