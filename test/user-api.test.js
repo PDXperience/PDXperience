@@ -25,31 +25,41 @@ describe('User:', () => {
     hours: 'dawn to dusk'
   };
 
-  it.only('Requires a password to signup', done => {
+  it('Requires a password to signup', done => {
     request
       .post('/api/auth/signup')
       .send({email:'new@somebody.com', firstName: 'first', admin: false})
       .then(res => done('Error: status should not be 200', res))
       .catch(res => {
         assert.equal(res.status, 400);
-
         assert.equal(res.response.text, '{"error":"Email, password, and first name are required to sign up."}');
         done();
       });
-
   });
 
-  it('Allows a new user to signup', done => {
+  it('Requires an email to signup', done => {
     request
       .post('/api/auth/signup')
-      .send({email:'new@somebody.com', password:'password', firstName: 'first', admin: false})
-      .then(res => {
-        assert.ok(res.body.token);
-        firstToken = res.body.token;
-      })
-      .then(done)
-      .catch(done);
-
+      .send({password:'password', firstName: 'first', admin: false})
+      .then(res => done('Error: status should not be 200', res))
+      .catch(res => {
+        assert.equal(res.status, 400);
+        assert.equal(res.response.text, '{"error":"Email, password, and first name are required to sign up."}');
+        done();
+      });
   });
 
+  it('Requires a name to signup', done => {
+    request
+      .post('/api/auth/signup')
+      .send({password:'password', email: 'first@name.com', admin: false})
+      .then(res => done('Error: status should not be 200', res))
+      .catch(res => {
+        assert.equal(res.status, 400);
+        assert.equal(res.response.text, '{"error":"Email, password, and first name are required to sign up."}');
+        done();
+      });
+  });
+
+ 
 });
