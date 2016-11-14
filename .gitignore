@@ -1,3 +1,9 @@
+# Data files
+*.csv
+*.zip
+data/citydata
+
+
 # Apple
 .DS_Store
 
