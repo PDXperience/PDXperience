@@ -1,5 +1,5 @@
 {
-  "name": "PDXperience",
+  "name": "pdxperience",
   "version": "0.1.0",
   "description": "A data-API for things to do in Portland",
   "main": "server.js",
