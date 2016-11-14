@@ -61,5 +61,16 @@ describe('User:', () => {
       });
   });
 
- 
+  it('Allows a new user to signup', done => {
+    request
+      .post('/api/auth/signup')
+      .send({email:'new@somebody.com', password:'password', firstName: 'first', admin: false})
+      .then(res => {
+        assert.ok(res.body.token);
+        firstToken = res.body.token;
+      })
+      .then(done)
+      .catch(done);
+  });
+
 });
