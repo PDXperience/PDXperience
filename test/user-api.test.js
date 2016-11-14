@@ -73,4 +73,17 @@ describe('User:', () => {
       .catch(done);
   });
 
+  it('Errors if you sign up with an already taken email address', done => {
+    request
+      .post('/api/auth/signup')
+      .send({email:'new@somebody.com', password:'other', firstName: 'second', admin: false})
+      .then(res => done('Error: status should not be 200', res))
+      .catch(res => {
+        assert.equal(res.status, 400);
+        assert.equal(res.response.text, '{"error":"Username new@somebody.com already taken."}');
+        done();
+      });
+  });
+  
+
 });
