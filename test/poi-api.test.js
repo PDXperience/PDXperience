@@ -85,7 +85,7 @@ describe('Poi:', () => {
       .catch(done);
   });
 
-  it('DELETEs an artist', done => {
+  it('DELETEs a poi', done => {
     request
       .delete(`/api/admin/id/${somePark._id}`)
       .set('authorization', token)
@@ -95,7 +95,5 @@ describe('Poi:', () => {
       })
       .catch(done);
   });
-
- 
 
 });
