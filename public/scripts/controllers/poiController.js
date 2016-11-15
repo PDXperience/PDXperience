@@ -17,7 +17,12 @@
       .fail(function () {
         $('#testdiv').append('<p>Oh no, something went wrong!</p>');
       });
-  }
+  };
+
+  poiController.getParks = function(ctx, next) {
+    
+
+  };
 
 
   module.poiController = poiController;
