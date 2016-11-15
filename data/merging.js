@@ -1,14 +1,13 @@
 
 const fs = require('fs');
-var parks = require('./parks');
+var parks = require('./park-data');
 var linking = require('./linking');
 var amenities = require('./amenities');
 var latlong = require('./latlong');
 
 for (let i = 0; i < parks.length; i++) {
   // 1:1 park to lat long
-  parks[i].Lat += latlong[i].lat;
-  parks[i].Long += latlong[i].long;
+  parks[i].geo = [latlong[i].long, latlong[i].lat];
   // 1:many park to amenities
 
   for (let j = 0; j < linking.length; j++) {
@@ -27,4 +26,23 @@ for (let i = 0; i < amenities.length; i++) {
   }
 }
 
-fs.writeFileSync('park-data.json', JSON.stringify(parks));
+var newArray = [];
+
+for (let i = 0; i < parks.length; i++) {
+  var newData = new Object();
+  newData.property = parks[i].property;
+  newData.type = parks[i].type;
+  newData.address = parks[i].address;
+  newData.zip = parks[i].zip;
+  newData.subArea = parks[i].subArea;
+  newData.hours = parks[i].hours;
+  newData.amenities = parks[i].Amenities;
+  newData.geo = parks[i].geo;
+  newData.childFriendly = true;
+  newData.stars = [];
+  newData.reviews = [];
+
+  newArray.push(newData);
+}
+
+fs.writeFileSync('geo-park-data.json', JSON.stringify(newArray));
