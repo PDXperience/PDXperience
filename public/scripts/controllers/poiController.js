@@ -3,8 +3,9 @@
   var poiController = {};
 
   // call the GET all
-  poiController.getAll = function() {
-    console.log('the poi controller was called');
+  poiController.getAll = function(ctx, next) {
+
+    console.log('the ctx object is ', ctx);
 
     var promise = $.getJSON('/api');
 
