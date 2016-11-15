@@ -1,13 +1,17 @@
 (function(module) {
 
+  var poiController = {};
 
   // call the GET all
-  function getAll() {
+  poiController.getAll = function() {
+    console.log('the poi controller was called');
+
     var promise = $.getJSON('/api');
 
     promise
       .done(function (data) {
-        $('#testdiv').append(data.text);
+        console.log('heres the data', data);
+        $('#testdiv').append(data);
       })
       .fail(function () {
         $('#testdiv').append('<p>Oh no, something went wrong!</p>');
@@ -15,6 +19,6 @@
   }
 
 
-  module.getAll = getAll;
+  module.poiController = poiController;
 
 })(window);
