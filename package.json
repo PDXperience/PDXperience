@@ -17,6 +17,9 @@
   "bugs": {
     "url": "git+https://github.com/PDXperience/PDXperience#issues"
   },
+  "engines": {
+    "node": "6.9.1"
+  },
   "homepage": "https://github.com/PDXperience/PDXperience#readme",
   "devDependencies": {
     "chai": "^3.5.0",
