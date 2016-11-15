@@ -1,8 +1,7 @@
 // front-end routing
 
-page('/', homeController.reveal);
-page('/about', aboutController.reveal);
-page('/city-data', dataController.reveal);
-page('/city-comparison', graphsController.reveal);
+page('/', poiController.reveal);
+page('/me', userController.reveal);
+page('/admin', adminController.reveal);
 
 page();
