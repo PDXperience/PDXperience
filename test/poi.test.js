@@ -26,7 +26,16 @@ describe('Poi model', () => {
     });
   });
 
+  it('type is required', done => {
+    const poi = new Poi({
+      property: 'some place'
+    });
 
+    poi.validate(err => {
+      assert.isOk(err, 'type should have been required');
+      done();
+    });  
+  });
 
 
 
