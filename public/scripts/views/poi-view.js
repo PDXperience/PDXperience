@@ -2,8 +2,14 @@
 
   var poiView = {};
 
-  poiView.render = function(poiHtml) {
-    $('#testdiv').append(poiHtml);  
+  poiView.renderAll = function(poiHtml) {
+    $('.poi').not('#all').empty();
+    $('#all').append(poiHtml);  
+  };
+
+  poiView.renderType = function(poiHtml) {
+    $('.poi').not('#type').empty();
+    $('#type').append(poiHtml);  
   };
 
   module.poiView = poiView;

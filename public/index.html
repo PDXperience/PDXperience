@@ -58,22 +58,27 @@
 <body>
     <h1>PDXperience</h1>
     <p>Portland's tool to get to know your city better</p>
-    <select>
-        <option>Parks</option>
-        <option>Museums</option>
-        <option>Theatre Houses</option>
+
+    <div id="user-info"></div>
+
+    <select id="selectmenu">
+        <option value="park">Parks</option>
+        <option value="museum">Museums</option>
+        <option value="garden">Gardens</option>
+        <option value="natural_area">Natural Areas</option>
     </select>
 
 
     <ul>
-        <li><a href="all">Get all points of interest</a></li>
-        <li><a href="type/park">Get all parks</a></li>
-        <li><a href="type/museum">Get all museums</a></li>
-        <li><a href="type/theatre">Get all theatres</a></li>
+        <li><a href="/all">Get all points of interest</a></li>
+        <li><a href="/type/park">Get all parks</a></li>
+        <li><a href="/type/museum">Get all museums</a></li>
+        <li><a href="/type/theatre">Get all theatres</a></li>
     </ul>
 
-
-    <div id="testdiv"></div>
+    <div id="all" class="poi"></div>
+    <div id="type" class="poi"></div>
+    <div id="id" class="poi"></div>
 
 
     <!-- Scripts go here! -->
