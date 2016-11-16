@@ -36,7 +36,7 @@
 	"reviews": []
 }, {
 	"property": "Lan Su Chinese Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NW 3rd Ave & Everett St",
 	"zip": 97209,
 	"subArea": "CC/NW",
@@ -48,7 +48,7 @@
 	"reviews": []
 }, {
 	"property": "Clinton Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 18th Ave & Clinton St",
 	"zip": 97214,
 	"subArea": "SE",
@@ -72,7 +72,7 @@
 	"reviews": []
 }, {
 	"property": "Colonel Summers Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 20th Ave & Taylor St",
 	"zip": 97214,
 	"subArea": "SE",
@@ -132,7 +132,7 @@
 	"reviews": []
 }, {
 	"property": "Cottonwood Bay",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW Hamilton Ct (off Landing Dr)",
 	"zip": 97219,
 	"subArea": "SW",
@@ -180,7 +180,7 @@
 	"reviews": []
 }, {
 	"property": "Crystal Springs Rhododendron Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 28th Ave & Woodstock Blvd",
 	"zip": 97202,
 	"subArea": "SE",
@@ -192,7 +192,7 @@
 	"reviews": []
 }, {
 	"property": "Cully Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 42nd Ave & Killingworth St",
 	"zip": 97218,
 	"subArea": "NE",
@@ -288,7 +288,7 @@
 	"reviews": []
 }, {
 	"property": "Adams Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "4300 NW Cornell Rd",
 	"zip": 97210,
 	"subArea": "CC/NW",
@@ -372,7 +372,7 @@
 	"reviews": []
 }, {
 	"property": "Ash Creek Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW 53rd Ave & Dickinson St",
 	"zip": 97219,
 	"subArea": "SW",
@@ -408,7 +408,7 @@
 	"reviews": []
 }, {
 	"property": "Berrydale Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 90th Ave & Taylor St",
 	"zip": 97216,
 	"subArea": "SE",
@@ -432,7 +432,7 @@
 	"reviews": []
 }, {
 	"property": "Blair Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 33rd Ave & Stark St",
 	"zip": 97214,
 	"subArea": "SE",
@@ -492,7 +492,7 @@
 	"reviews": []
 }, {
 	"property": "Buckman Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 18th Ave & Oak St",
 	"zip": 97214,
 	"subArea": "SE",
@@ -660,7 +660,7 @@
 	"reviews": []
 }, {
 	"property": "Elk Rock Island",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE 19th Ave & Sparrow St",
 	"zip": 97222,
 	"subArea": "SE",
@@ -672,7 +672,7 @@
 	"reviews": []
 }, {
 	"property": "Errol Heights Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE 52nd Ave & Tenino St",
 	"zip": 97206,
 	"subArea": "SE",
@@ -696,7 +696,7 @@
 	"reviews": []
 }, {
 	"property": "Everett Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 27th Ave & Everett St",
 	"zip": 97232,
 	"subArea": "NE",
@@ -708,7 +708,7 @@
 	"reviews": []
 }, {
 	"property": "Fanno Creek Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW 59th Ave & Hamilton St",
 	"zip": 97221,
 	"subArea": "SW",
@@ -804,7 +804,7 @@
 	"reviews": []
 }, {
 	"property": "Frank L Knight Property",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW Montgomery Dr",
 	"zip": 97201,
 	"subArea": "SW",
@@ -828,7 +828,7 @@
 	"reviews": []
 }, {
 	"property": "Fulton Community Garden & Display Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SW 3rd Ave & Miles St",
 	"zip": 97219,
 	"subArea": "SW",
@@ -864,7 +864,7 @@
 	"reviews": []
 }, {
 	"property": "Gabriel Community Garden & Orchard",
-	"type": "park",
+	"type": "garden",
 	"address": "SW 41st Ave & Canby St",
 	"zip": 97219,
 	"subArea": "SW",
@@ -1044,7 +1044,7 @@
 	"reviews": []
 }, {
 	"property": "Harbor View Property",
-	"type": "park",
+	"type": "natural area",
 	"address": "N Willamette Blvd & Carey Blvd",
 	"zip": 97203,
 	"subArea": "N",
@@ -1212,7 +1212,7 @@
 	"reviews": []
 }, {
 	"property": "Ivon Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 38th Ave & Ivon St",
 	"zip": 97215,
 	"subArea": "SE",
@@ -1224,7 +1224,7 @@
 	"reviews": []
 }, {
 	"property": "Japanese Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SW Kingston Dr",
 	"zip": 97201,
 	"subArea": "CC/NW",
@@ -1236,7 +1236,7 @@
 	"reviews": []
 }, {
 	"property": "Jensen Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW 18th Pl north of Broadleaf Dr",
 	"zip": 97219,
 	"subArea": "SW",
@@ -1260,7 +1260,7 @@
 	"reviews": []
 }, {
 	"property": "Johns Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Edison St & John Ave",
 	"zip": 97203,
 	"subArea": "N",
@@ -1284,7 +1284,7 @@
 	"reviews": []
 }, {
 	"property": "Johnson Lake Property",
-	"type": "park",
+	"type": "natural area",
 	"address": "NE Glass Plant Rd & Simpson St",
 	"zip": 97218,
 	"subArea": "NE",
@@ -1308,7 +1308,7 @@
 	"reviews": []
 }, {
 	"property": "Kelly Butte Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE 103rd Ave & Clinton St",
 	"zip": 97266,
 	"subArea": "OE",
@@ -1332,7 +1332,7 @@
 	"reviews": []
 }, {
 	"property": "Kennedy Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "5736 NE 33rd Ave",
 	"zip": 97211,
 	"subArea": "NE",
@@ -1416,7 +1416,7 @@
 	"reviews": []
 }, {
 	"property": "Ladd Circle Park & Rose Gardens",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 16th Ave & Harrison St",
 	"zip": 97214,
 	"subArea": "SE",
@@ -1464,7 +1464,7 @@
 	"reviews": []
 }, {
 	"property": "Leach Botanical Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "6704 SE 122nd Ave",
 	"zip": 97236,
 	"subArea": "OE",
@@ -1476,7 +1476,7 @@
 	"reviews": []
 }, {
 	"property": "Lents Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 88th Ave & Steele St",
 	"zip": 97266,
 	"subArea": "SE",
@@ -1644,7 +1644,7 @@
 	"reviews": []
 }, {
 	"property": "Maricara Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "10608 SW 30th Ave",
 	"zip": 97219,
 	"subArea": "SW",
@@ -1656,7 +1656,7 @@
 	"reviews": []
 }, {
 	"property": "Marquam Nature Park",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW Marquam St & Sam Jackson Park Rd",
 	"zip": 97201,
 	"subArea": "SW",
@@ -1884,7 +1884,7 @@
 	"reviews": []
 }, {
 	"property": "Oaks Bottom Wildlife Refuge",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE 7th Ave & Sellwood Blvd",
 	"zip": 97202,
 	"subArea": "SE",
@@ -1896,7 +1896,7 @@
 	"reviews": []
 }, {
 	"property": "Oaks Crossing Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE Oaks Pkwy",
 	"zip": 97202,
 	"subArea": "SE",
@@ -2004,7 +2004,7 @@
 	"reviews": []
 }, {
 	"property": "Peter Kerr Property",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW Greenwood Rd & Riverside Dr",
 	"zip": 97219,
 	"subArea": "SW",
@@ -2124,7 +2124,7 @@
 	"reviews": []
 }, {
 	"property": "Powell Butte Nature Park",
-	"type": "park",
+	"type": "natural area",
 	"address": "16160 SE Powell Blvd",
 	"zip": 97236,
 	"subArea": "OE",
@@ -2196,7 +2196,7 @@
 	"reviews": []
 }, {
 	"property": "Rocky Butte Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "NE Rocky Butte Rd",
 	"zip": 97220,
 	"subArea": "NE",
@@ -2244,7 +2244,7 @@
 	"reviews": []
 }, {
 	"property": "Rosemont Bluff Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "NE 68th Ave & Hassalo St",
 	"zip": 97213,
 	"subArea": "NE",
@@ -2256,7 +2256,7 @@
 	"reviews": []
 }, {
 	"property": "Sabin Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 19th Ave & Skidmore St",
 	"zip": 97212,
 	"subArea": "NE",
@@ -2316,7 +2316,7 @@
 	"reviews": []
 }, {
 	"property": "Sewallcrest Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 31st Ave & Market St",
 	"zip": 97214,
 	"subArea": "SE",
@@ -2340,7 +2340,7 @@
 	"reviews": []
 }, {
 	"property": "Smith & Bybee Wetlands Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "5300 N Marine Drive",
 	"zip": 97203,
 	"subArea": "N",
@@ -2424,7 +2424,7 @@
 	"reviews": []
 }, {
 	"property": "Stephens Creek Nature Park",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW Bertha Blvd & Chestnut St",
 	"zip": 97219,
 	"subArea": "SW",
@@ -2472,7 +2472,7 @@
 	"reviews": []
 }, {
 	"property": "Cottonwood Creek Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE 97th Ave & Tenino Ct",
 	"zip": 97266,
 	"subArea": "SE",
@@ -2508,7 +2508,7 @@
 	"reviews": []
 }, {
 	"property": "Tideman Johnson Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE 37th Ave & Tenino St",
 	"zip": 97202,
 	"subArea": "SE",
@@ -2568,7 +2568,7 @@
 	"reviews": []
 }, {
 	"property": "Vermont Hills Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SW 55th Ave & Iowa St",
 	"zip": 97221,
 	"subArea": "SW",
@@ -2628,7 +2628,7 @@
 	"reviews": []
 }, {
 	"property": "Water & Gibbs Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SW Water Ave & Gibbs St",
 	"zip": 97201,
 	"subArea": "SW",
@@ -2652,7 +2652,7 @@
 	"reviews": []
 }, {
 	"property": "West Portland Park Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW 39th Ave & Pomona St",
 	"zip": 97219,
 	"subArea": "SW",
@@ -2688,7 +2688,7 @@
 	"reviews": []
 }, {
 	"property": "Whitaker Ponds Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "7040 NE 47th Ave",
 	"zip": 97218,
 	"subArea": "NE",
@@ -2772,7 +2772,7 @@
 	"reviews": []
 }, {
 	"property": "Woodlawn Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 11th Ave & Claremont Ave",
 	"zip": 97211,
 	"subArea": "NE",
@@ -2796,7 +2796,7 @@
 	"reviews": []
 }, {
 	"property": "Woods Memorial Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW 45th Ave & Woods St",
 	"zip": 97219,
 	"subArea": "SW",
@@ -2832,7 +2832,7 @@
 	"reviews": []
 }, {
 	"property": "Portsmouth Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Hunt St & Courtenay Ave",
 	"zip": 97203,
 	"subArea": "N",
@@ -2844,7 +2844,7 @@
 	"reviews": []
 }, {
 	"property": "Patton Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "4619 N Michigan Ave",
 	"zip": 97217,
 	"subArea": "NE",
@@ -2880,7 +2880,7 @@
 	"reviews": []
 }, {
 	"property": "Clark & Wilson",
-	"type": "park",
+	"type": "natural area",
 	"address": "NW Germantown Rd",
 	"zip": 97231,
 	"subArea": "CC/NW",
@@ -2892,7 +2892,7 @@
 	"reviews": []
 }, {
 	"property": "Holman Property",
-	"type": "park",
+	"type": "natural area",
 	"address": "NW Mountain View Park Rd",
 	"zip": 97210,
 	"subArea": "CC/NW",
@@ -2904,7 +2904,7 @@
 	"reviews": []
 }, {
 	"property": "Jefferson Street Property",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW Jefferson St & Canyon Rd",
 	"zip": 97221,
 	"subArea": "SW",
@@ -2928,7 +2928,7 @@
 	"reviews": []
 }, {
 	"property": "Mocks Crest Property",
-	"type": "park",
+	"type": "natural area",
 	"address": "2206 N Skidmore St",
 	"zip": 97217,
 	"subArea": "N",
@@ -2940,7 +2940,7 @@
 	"reviews": []
 }, {
 	"property": "Moore Island",
-	"type": "park",
+	"type": "natural area",
 	"address": "Columbia Bayou South of Heron Lakes",
 	"zip": 97217,
 	"subArea": "N",
@@ -3060,7 +3060,7 @@
 	"reviews": []
 }, {
 	"property": "Mitchell Creek Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SE 157th Ave & Clatsop St",
 	"zip": 97236,
 	"subArea": "OE",
@@ -3168,7 +3168,7 @@
 	"reviews": []
 }, {
 	"property": "Washington Park - International Rose Test Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "400 SW Kingston Ave",
 	"zip": 97210,
 	"subArea": "CC/NW",
@@ -3252,7 +3252,7 @@
 	"reviews": []
 }, {
 	"property": "Peninsula Park Rose Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Albina St & Ainsworth St",
 	"zip": 97217,
 	"subArea": "N",
@@ -3372,7 +3372,7 @@
 	"reviews": []
 }, {
 	"property": "Foley-Balmer Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "9520 SW Lancaster Rd",
 	"zip": 97219,
 	"subArea": "SW",
@@ -3420,7 +3420,7 @@
 	"reviews": []
 }, {
 	"property": "Portland Memory Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 104th Ave & Powell Blvd",
 	"zip": 97266,
 	"subArea": "OE",
@@ -3432,7 +3432,7 @@
 	"reviews": []
 }, {
 	"property": "Boise-Eliot Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "318 N Fremont St",
 	"zip": 97227,
 	"subArea": "N",
@@ -3444,7 +3444,7 @@
 	"reviews": []
 }, {
 	"property": "Brentwood Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 57th Ave & Cooper St",
 	"zip": 97206,
 	"subArea": "SE",
@@ -3456,7 +3456,7 @@
 	"reviews": []
 }, {
 	"property": "Front & Curry Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SW Naito Pkwy & Curry St",
 	"zip": 97201,
 	"subArea": "SW",
@@ -3468,7 +3468,7 @@
 	"reviews": []
 }, {
 	"property": "Beach Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Campbell Ave & Going Ct",
 	"zip": 97217,
 	"subArea": "N",
@@ -3480,7 +3480,7 @@
 	"reviews": []
 }, {
 	"property": "Arnold Creek Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "SW 11th Dr & Arnold St",
 	"zip": 97219,
 	"subArea": "SW",
@@ -3516,7 +3516,7 @@
 	"reviews": []
 }, {
 	"property": "Pier Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Iris Way & Barr Ave",
 	"zip": 97203,
 	"subArea": "N",
@@ -3564,7 +3564,7 @@
 	"reviews": []
 }, {
 	"property": "Eastmoreland Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "2425 SE Bybee Blvd",
 	"zip": 97202,
 	"subArea": "SE",
@@ -3588,7 +3588,7 @@
 	"reviews": []
 }, {
 	"property": "Rigler Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "5401 NE Prescott St",
 	"zip": 97218,
 	"subArea": "NE",
@@ -3600,7 +3600,7 @@
 	"reviews": []
 }, {
 	"property": "McCoy Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Newman Ave & Fessenden St",
 	"zip": 97203,
 	"subArea": "N",
@@ -3780,7 +3780,7 @@
 	"reviews": []
 }, {
 	"property": "Boyles Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 110th Ave & Francis St",
 	"zip": 97266,
 	"subArea": "OE",
@@ -3792,7 +3792,7 @@
 	"reviews": []
 }, {
 	"property": "Senns Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 112th Ave & Prescott St",
 	"zip": 97220,
 	"subArea": "OE",
@@ -3840,7 +3840,7 @@
 	"reviews": []
 }, {
 	"property": "Ross Island Natural Area",
-	"type": "park",
+	"type": "natural area",
 	"address": "Island",
 	"zip": "",
 	"subArea": "SE",
@@ -3864,7 +3864,7 @@
 	"reviews": []
 }, {
 	"property": "Hazelwood Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 117th Ave & Holladay St",
 	"zip": 97220,
 	"subArea": "OE",
@@ -3876,7 +3876,7 @@
 	"reviews": []
 }, {
 	"property": "Peace Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "12727 SE Market St",
 	"zip": 97233,
 	"subArea": "OE",
@@ -3888,7 +3888,7 @@
 	"reviews": []
 }, {
 	"property": "Madison Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "2735 NE 82nd Ave",
 	"zip": 97220,
 	"subArea": "NE",
@@ -3900,7 +3900,7 @@
 	"reviews": []
 }, {
 	"property": "Vestal Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 81st Ave & Everett St",
 	"zip": 97215,
 	"subArea": "SE",
@@ -3960,7 +3960,7 @@
 	"reviews": []
 }, {
 	"property": "Gilbert Heights Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 130th Ave & Boise St",
 	"zip": 97236,
 	"subArea": "OE",
@@ -3996,7 +3996,7 @@
 	"reviews": []
 }, {
 	"property": "Furey Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 117th Ave & Reedway St",
 	"zip": 97266,
 	"subArea": "OE",
@@ -4080,7 +4080,7 @@
 	"reviews": []
 }, {
 	"property": "Ed Benedict Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 104th Ave & Bush St",
 	"zip": 97266,
 	"subArea": "OE",
@@ -4092,7 +4092,7 @@
 	"reviews": []
 }, {
 	"property": "Errol Heights Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "4841 SE Tenino Dr",
 	"zip": 97206,
 	"subArea": "SE",
@@ -4104,7 +4104,7 @@
 	"reviews": []
 }, {
 	"property": "Frazer Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 52nd Ave & Pacific St",
 	"zip": 97213,
 	"subArea": "NE",
@@ -4116,7 +4116,7 @@
 	"reviews": []
 }, {
 	"property": "Sumner Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 47th Ave & Sumner St",
 	"zip": 97218,
 	"subArea": "NE",
@@ -4128,7 +4128,7 @@
 	"reviews": []
 }, {
 	"property": "Clarendon Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Newark St & Van Houten Ave",
 	"zip": 97203,
 	"subArea": "N",
@@ -4140,7 +4140,7 @@
 	"reviews": []
 }, {
 	"property": "Kenton Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "N Houghton St & Burrage St",
 	"zip": 97217,
 	"subArea": "N",
@@ -4164,7 +4164,7 @@
 	"reviews": []
 }, {
 	"property": "Grant Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "2245 NE 36th Ave",
 	"zip": 97212,
 	"subArea": "NE",
@@ -4212,7 +4212,7 @@
 	"reviews": []
 }, {
 	"property": "Helensview Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "8678 NE Sumner St",
 	"zip": 97220,
 	"subArea": "NE",
@@ -4224,7 +4224,7 @@
 	"reviews": []
 }, {
 	"property": "NE 72nd Ave Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "NE 72nd Ave & Killingsworth St",
 	"zip": 97218,
 	"subArea": "NE",
@@ -4236,7 +4236,7 @@
 	"reviews": []
 }, {
 	"property": "Mt Tabor Community Garden",
-	"type": "park",
+	"type": "garden",
 	"address": "SE 64th Ave & Lincoln St",
 	"zip": 97215,
 	"subArea": "SE",
