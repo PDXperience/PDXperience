@@ -6,13 +6,13 @@
 
     <!-- HANDLEBARS TEMPLATES GO HERE -->
     <script id="view-many-template" type="text/x-handlebars-template">
-        <a href="id/{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
+        <a href="../id/{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
         <p>Address: {{address}}, {{zip}}</p>
         <p>Hours: {{hours}}</p>
     </script>
 
     <script id="view-type-template" type="text/x-handlebars-template">
-        <a href="id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
         <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
         <p><b>Address:</b> {{address}}, {{zip}}</p>
         <p><b>Hours:</b> {{hours}}</p>
@@ -20,7 +20,7 @@
     </script>
 
     <script id="view-one-template" type="text/x-handlebars-template">
-        <a href="id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
         <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
         <p><b>Address:</b> {{address}}, {{zip}}</p>
         <p><b>Hours:</b> {{hours}}</p>
