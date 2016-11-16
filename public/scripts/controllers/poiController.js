@@ -27,14 +27,15 @@
     return template(jsonData);
   };
 
-  // $('#selectmenu').on('change', function() {
-  //   console.log($(this).val());
-  //   poiController.type = $(this).val();
-  //   poiController.getType();
-  // });
+  $('#selectmenu').on('change', function() {
+    if ($(this).val() === 'all') {
+      poiController.getAll();
+    }
+    poiController.getType($(this).val());
+  });
 
   // call the GET all
-  poiController.getAll = function(ctx, next) {
+  poiController.getAll = function() {
 
     var promise = $.getJSON('/api');
 
@@ -43,7 +44,6 @@
         allPoi.forEach(poi => {
           var poiHtml = createManyPoiHtml(poi);
           poiView.renderAll(poiHtml);
-          next();
         });
       })
       .fail(function () {
@@ -51,16 +51,14 @@
       });
   };
 
-  poiController.getType = function(ctx, next) {
-    console.log('CTX ',ctx);
-    var promise = $.getJSON('/api' + ctx.path);
+  poiController.getType = function(path) {
+    var promise = $.getJSON('/api/type/' + path);
 
     promise
       .done(type => {
         type.forEach(poi => {
           var poiHtml = createTypeHtml(poi);
           poiView.renderType(poiHtml);
-          next();
         });
       })
       .fail(function () {
