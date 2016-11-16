@@ -14,7 +14,20 @@ describe('Poi model', () => {
       else done(err);
     });
   });
-  
+
+  it('property is required', done => {
+    const poi = new Poi({
+      type: 'park'
+    });
+
+    poi.validate(err => {
+      assert.isOk(err, 'property should have been required');
+      done();
+    });
+  });
+
+
+
 
 
 });
