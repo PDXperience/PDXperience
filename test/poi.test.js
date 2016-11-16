@@ -62,11 +62,19 @@ describe('Poi model', () => {
       expect(poi.childFriendly).to.be.a('boolean');
       done();
     });
-
   });
 
-
-
-
-
+  it ('reviews should be an array', done => {
+    const poi = new Poi({
+      property: 'some place',
+      type: 'park',
+      reviews: 'blah'
+    });
+    
+    poi.validate(err => {
+      expect(poi.reviews).to.be.an('array');
+      done();
+    });
+  });
+  
 });
