@@ -2,9 +2,9 @@
 
 
 page('/all', poiController.getAll);
-// page('/parks', poiController.getParks);
-// page('/museums', poiController.getMuseums);
-// page('/theatres', poiController.getTheatres);
+page('/parks', poiController.getParks);
+page('/museums', poiController.getMuseums);
+page('/theatres', poiController.getTheatres);
 
 
 
