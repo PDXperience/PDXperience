@@ -19,11 +19,11 @@
       });
   };
 
-  poiController.getParks = function(ctx, next) {
+  poiController.getType = function(ctx, next) {
 
     console.log('the ctx object is ', ctx);
-    
-    var promise = $.getJSON('/api/type/park');
+    console.log('route' + '/api' + ctx.path);
+    var promise = $.getJSON('/api' + ctx.path);
 
     promise
       .done(function (data) {
@@ -35,37 +35,7 @@
       });
   };
 
-  poiController.getMuseums = function(ctx, next) {
-
-    console.log('the ctx object is ', ctx);
-    
-    var promise = $.getJSON('/api/type/museum');
-
-    promise
-      .done(function (data) {
-        //use handlebars to render to the page
-        console.log('heres the museums: ', data);
-      }).
-      fail(function () {
-        console.log('something went wrong trying to get the museums');
-      });
-  };
-
-  poiController.getTheatres = function(ctx, next) {
-
-    console.log('the ctx object is ', ctx);
-    
-    var promise = $.getJSON('/api/type/theatre');
-
-    promise
-      .done(function (data) {
-        //use handlebars to render to the page
-        console.log('heres the theatres: ', data);
-      }).
-      fail(function () {
-        console.log('something went wrong trying to get the theatres');
-      });
-  };
+  
 
 
   module.poiController = poiController;
