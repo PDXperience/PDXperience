@@ -90,7 +90,14 @@ describe('Poi:', () => {
     request
       .get('/api')
       .then(res => {
-        assert.deepEqual(res.body, [somePark]);
+        let expected = { 
+          property: somePark.property,
+          type: somePark.type,
+          address: somePark.address,
+          hours: somePark.hours,
+          _id: somePark._id
+        };
+        assert.deepEqual(res.body, [expected]);
         done();
       })
       .catch(done);
@@ -98,7 +105,7 @@ describe('Poi:', () => {
 
   it('DELETEs a poi', done => {
     request
-      .delete(`/api/admin/id/${somePark._id}`)
+      .delete(`/api/admin/poi/${somePark._id}`)
       .set('authorization', token)
       .then(res => {
         assert.deepEqual(res.body, somePark);
