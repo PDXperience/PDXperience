@@ -64,7 +64,7 @@ describe('Poi model', () => {
     });
   });
 
-  it ('reviews should be an array', done => {
+  it('reviews should be an array', done => {
     const poi = new Poi({
       property: 'some place',
       type: 'park',
@@ -76,5 +76,20 @@ describe('Poi model', () => {
       done();
     });
   });
-  
+
+  it('geo should be an array of numbers', done => {
+    const poi = new Poi({
+      property: 'some place',
+      type: 'park',
+      geo: 9809
+    });
+
+    console.log('poi: ', poi);
+
+    poi.validate(err => {
+      expect(poi.geo).to.be.an('array');
+      done();
+    });
+  });
+
 });
