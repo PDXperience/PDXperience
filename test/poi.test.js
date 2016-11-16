@@ -37,6 +37,19 @@ describe('Poi model', () => {
     });  
   });
 
+  it('zip must be a number', done => {
+    const poi = new Poi({
+      property: 'some place',
+      type: 'park',
+      zip: 'not a number'
+    });
+
+    poi.validate(err => {
+      assert.isOk(err, 'expected error on zip data type');
+      done();
+    });
+  });
+
 
 
 });
