@@ -1,5 +1,6 @@
 const Poi = require('../lib/models/poi');
 const assert = require('chai').assert;
+const expect = require('chai').expect;
 
 describe('Poi model', () => {
 
@@ -49,6 +50,22 @@ describe('Poi model', () => {
       done();
     });
   });
+
+  it('childFriendly must be a boolean', done => {
+    const poi = new Poi({
+      property: 'some place',
+      type: 'park',
+      childFriendly: true
+    });
+
+    poi.validate(err => {
+      expect(poi.childFriendly).to.be.a('boolean');
+      done();
+    });
+
+  });
+
+
 
 
 
