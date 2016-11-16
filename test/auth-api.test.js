@@ -1,3 +1,5 @@
+const path = require('path');
+require('dotenv').load({path: path.join(__dirname, '.env.test')});
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const assert = chai.assert;
@@ -8,22 +10,15 @@ const app = require('../lib/app');
 
 
 describe('User:', () => {
-
+	
   before( done => {
-    const drop = () => connection.db.dropDatabase(done);
-    if (connection.readyState === 1) drop();
-    else connection.on( 'open', drop );
-  });
+		  const drop = () => connection.db.dropDatabase( done );
+		  if( connection.readyState === 1 ) drop();
+		  else connection.on( 'open', drop );
+	  });
 
   const request = chai.request(app);
   let firstToken = '';
-
-  const somePark = {
-    name: 'some park',
-    type: 'park',
-    location: '123 some st',
-    hours: 'dawn to dusk'
-  };
 
   it('Requires a password to signup', done => {
     request
@@ -68,8 +63,8 @@ describe('User:', () => {
       .then(res => {
         assert.ok(res.body.token);
         firstToken = res.body.token;
+        done();
       })
-      .then(done)
       .catch(done);
   });
 
