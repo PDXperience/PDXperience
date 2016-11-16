@@ -24,7 +24,7 @@ describe('Poi:', () => {
       .send({email:'somebody@somebody.com', password:'password', firstName: 'first-name', admin: true})
       .then(res => {
         assert.ok(res.body.token);
-        token = res.body.token;
+        token = res.body.token; 
       })
       .then(done)
       .catch(done);
@@ -80,7 +80,6 @@ describe('Poi:', () => {
           stars: somePark.stars,
           amenities: somePark.amenities,
           __v: somePark.__v };
-        console.log('expected ', expected);
         assert.deepEqual(poi, expected);
         done();
       })
