@@ -92,4 +92,14 @@ describe('Poi model', () => {
     });
   });
 
+  // it('gets average stars for a poi', done => {
+  //   const poi = new Poi({
+  //     property: 'some place',
+  //     type: 'park',
+  //     stars: {rating: 4, author: 12345}
+  //   });
+  //   poi.stars.push({rating: 5, author: 23456});
+  //   poi.stars.push({rating: 2, author: 34567});
+  // });
+
 });
