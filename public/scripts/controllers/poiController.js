@@ -7,6 +7,11 @@
     return template(jsonData);
   };
 
+  function createTypeHtml(jsonData) {
+    const template = Handlebars.compile($('#view-type-template').html());
+    return template(jsonData);
+  };
+
   function createOnePoiHtml(jsonData) {
     const template = Handlebars.compile($('#view-one-template').html());
     return template(jsonData);
@@ -30,9 +35,9 @@
     var promise = $.getJSON('/api');
 
     promise
-      .done(allParks => {
-        allParks.forEach(park => {
-          var parsed = createManyPoiHtml(park);
+      .done(allPoi => {
+        allPoi.forEach(poi => {
+          var parsed = createManyPoiHtml(poi);
           $('#testdiv').append(parsed);   
         });
       })
@@ -44,15 +49,16 @@
   poiController.getType = function(ctx, next) {
 
     console.log('the ctx object is ', ctx);
-    console.log('route' + '/api' + ctx.path);
     var promise = $.getJSON('/api' + ctx.path);
 
     promise
-      .done(function (data) {
-        //use handlebars to render to the page
-        console.log('heres the parks: ', data);
-      }).
-      fail(function () {
+      .done(type => {
+        type.forEach(poi => {
+          var parsed = createTypeHtml(poi);
+          $('#testdiv').append(parsed);
+        });
+      })
+      .fail(function () {
         console.log('something went wrong trying to get the parks');
       });
   };

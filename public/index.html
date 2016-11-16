@@ -6,20 +6,28 @@
 
     <!-- HANDLEBARS TEMPLATES GO HERE -->
     <script id="view-many-template" type="text/x-handlebars-template">
-        <a href="id/:{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
-        <p>Address: {{address}}</p>
+        <a href="id/{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
+        <p>Address: {{address}}, {{zip}}</p>
         <p>Hours: {{hours}}</p>
     </script>
 
+    <script id="view-type-template" type="text/x-handlebars-template">
+        <a href="id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
+        <p><b>Address:</b> {{address}}, {{zip}}</p>
+        <p><b>Hours:</b> {{hours}}</p>
+        <p><a href="me/{{_id}}">Add to my itinerary</a></p>
+    </script>
+
     <script id="view-one-template" type="text/x-handlebars-template">
-        <h3>{{property}}</h3> <b>Average Stars:{{stars}}</b>
-        <p><i>Type: {{type}}, Quadrant: {{subArea}}</i></p>
+        <a href="id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
         <p><b>Address:</b> {{address}}, {{zip}}</p>
         <p><b>Hours:</b> {{hours}}</p>
         <p><b>Amenities:</b> {{amenities}}</p>
         <p><b>Child friendly:</b> {{childFriendly}}</p>
         <p><b>Reviews:</b> {{reviews}}</p>
-        <p><a href="me/:{{_id}}">Add to my itinerary</a></p>
+        <p><a href="me/{{_id}}">Add to my itinerary</a></p>
     </script>
 
     <script id="my-stars-template" type="text/x-handlebars-template">
@@ -33,17 +41,17 @@
         <p><b>Hours:</b> {{hours}}</p>
         <p><b>Amenities:</b> {{amenities}}</p>
         <p><b>Child friendly:</b> {{childFriendly}}</p>
-        <form action="me/review/:{{_id}}" method="put">
+        <form action="me/review/{{_id}}" method="put">
             <label for="POST-name">Add a review:</label>
             <textarea id="review-body" rows="8" cols="30" required></textarea>
             <input id="POST-name" type="text">
             <input type="submit" value="Save" >
         </form>
-        <form action="me/stars/:{{_id}}" method="put">
+        <form action="me/stars/{{_id}}" method="put">
             Rate it! (between 1 and 5):
             <input type="number" name="quantity" min="1" max="5">
         </form>
-        <p><a href="me/delete/:{{_id}}">Completed!</a></p>
+        <p><a href="me/delete/{{_id}}">Completed!</a></p>
     </script>
 
 </head>
