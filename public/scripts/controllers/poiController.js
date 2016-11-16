@@ -73,7 +73,7 @@
     promise
       .done(poi => {
         var poiHtml = createOnePoiHtml(poi);
-        poiView.render(poiHtml);
+        poiView.renderId(poiHtml);
       }).
       fail(function () {
         console.log('something went wrong trying to get the parks');

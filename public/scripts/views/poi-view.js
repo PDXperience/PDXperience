@@ -12,6 +12,11 @@
     $('#type').append(poiHtml);  
   };
 
+  poiView.renderId = function(poiHtml) {
+    $('.poi').not('#id').empty();
+    $('#id').append(poiHtml);  
+  };
+
   module.poiView = poiView;
 
 })(window);
