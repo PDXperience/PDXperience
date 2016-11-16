@@ -5,6 +5,12 @@ data/citydata
 .vscode
 
 
+# Ignore the environmental var stuff
+.env
+
+# Ignore the heroku package
+pdxperience/
+
 # Apple
 .DS_Store
 
