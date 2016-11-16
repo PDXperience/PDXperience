@@ -35,8 +35,8 @@
     promise
       .done(allPoi => {
         allPoi.forEach(poi => {
-          var parsed = createManyPoiHtml(poi);
-          $('#testdiv').append(parsed);   
+          var poiHtml = createManyPoiHtml(poi);
+          poiView.render(poiHtml);
         });
       })
       .fail(function () {
@@ -51,8 +51,8 @@
     promise
       .done(type => {
         type.forEach(poi => {
-          var parsed = createTypeHtml(poi);
-          $('#testdiv').append(parsed);
+          var poiHtml = createTypeHtml(poi);
+          poiView.render(poiHtml);
         });
       })
       .fail(function () {
@@ -66,8 +66,8 @@
 
     promise
       .done(poi => {
-        var parsed = createOnePoiHtml(poi);
-        $('#testdiv').append(parsed);
+        var poiHtml = createOnePoiHtml(poi);
+        poiView.render(poiHtml);
       }).
       fail(function () {
         console.log('something went wrong trying to get the parks');
