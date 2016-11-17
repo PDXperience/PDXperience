@@ -83,7 +83,6 @@
           poiView.renderType(poiHtml);
          });
       });
-
   });
 
   userController.addItinerary = function(ctx, next) {
@@ -110,7 +109,32 @@
         $('#user-info').delay(2500).fadeOut('slow');
         console.log(res);
       });
+  };
 
+  userController.deleteItinerary = function(ctx, next) {
+    const path = ctx.path.split('/');
+    const id = path[path.length - 1];
+    const token = localStorage.getItem('token');
+
+    $.ajax({
+      method:'DELETE',
+      url: '/api/me/itineraries/' + id,
+      headers: {
+        'content-type': 'application/json',
+        'authorization': token
+      }
+    })
+      .fail(err => {
+        let $message = $('#itinerary-response-text');
+        $message.text("There was an error, please try again.").fadeIn('slow');
+        $message.delay(2500).fadeOut('slow');
+      })
+      .done(res => {
+        let $message = $('#itinerary-response-text');
+        $message.text("Removed from your itinerary.").fadeIn('slow');
+        $('#' + id).delay(1000).fadeOut('slow');
+        $message.delay(2500).fadeOut('slow');
+      });
 
   };
 
