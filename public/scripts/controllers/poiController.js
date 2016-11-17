@@ -80,9 +80,6 @@
       });
   };
 
-  
-
-
   module.poiController = poiController;
 
 })(window);
