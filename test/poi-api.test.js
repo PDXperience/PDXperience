@@ -79,7 +79,8 @@ describe('Poi:', () => {
       .set('authorization', token)
       .then(res => {
         const poi = res.body;
-        let expected = { 
+        let expected = {
+          _id: somePark._id, 
           property: somePark.property,
           type: somePark.type,
           address: somePark.address,
@@ -107,14 +108,14 @@ describe('Poi:', () => {
           .get('/api/type/museum')
           .then(res => {
             let response = res.body;
-            console.log(response)
             let expected = { 
               property: compare.property,
               address: compare.address,
               hours: compare.hours,
               _id: compare._id,
               subArea: compare.subArea,
-              zip: Number(compare.zip)};
+              zip: Number(compare.zip)
+            };
             assert.deepEqual(response, [expected]);
             done();
           })
