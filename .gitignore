@@ -16,7 +16,6 @@ pdxperience/
 
 # Environmental Variables
 .env
-test/.env.test
 
 # Logs
 logs

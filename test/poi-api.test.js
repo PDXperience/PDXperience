@@ -24,16 +24,16 @@ describe('Poi:', () => {
       .send({email:'somebody@somebody.com', password:'password', firstName: 'first-name', admin: true})
       .then(res => {
         assert.ok(res.body.token);
-        token = res.body.token;
+        token = res.body.token; 
       })
       .then(done)
       .catch(done);
   });
 
   const somePark = {
-    name: 'some park',
+    property: 'some park',
     type: 'park',
-    location: '123 some st',
+    address: '123 some st',
     hours: 'dawn to dusk'
   };
 
@@ -58,6 +58,8 @@ describe('Poi:', () => {
         somePark.__v = 0;
         somePark._id = poi._id;
         somePark.reviews = poi.reviews;
+        somePark.amenities = poi.amenities;
+        somePark.stars = poi.stars;
         done();
       })
       .catch(done);
@@ -69,7 +71,16 @@ describe('Poi:', () => {
       .set('authorization', token)
       .then(res => {
         const poi = res.body;
-        assert.deepEqual(poi, somePark);
+        let expected = { 
+          property: somePark.property,
+          type: somePark.type,
+          address: somePark.address,
+          hours: somePark.hours,
+          reviews: somePark.reviews,
+          stars: somePark.stars,
+          amenities: somePark.amenities,
+          __v: somePark.__v };
+        assert.deepEqual(poi, expected);
         done();
       })
       .catch(done);
@@ -79,7 +90,14 @@ describe('Poi:', () => {
     request
       .get('/api')
       .then(res => {
-        assert.deepEqual(res.body, [somePark]);
+        let expected = { 
+          property: somePark.property,
+          type: somePark.type,
+          address: somePark.address,
+          hours: somePark.hours,
+          _id: somePark._id
+        };
+        assert.deepEqual(res.body, [expected]);
         done();
       })
       .catch(done);
@@ -87,7 +105,7 @@ describe('Poi:', () => {
 
   it('DELETEs a poi', done => {
     request
-      .delete(`/api/admin/id/${somePark._id}`)
+      .delete(`/api/admin/poi/${somePark._id}`)
       .set('authorization', token)
       .then(res => {
         assert.deepEqual(res.body, somePark);
