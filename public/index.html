@@ -36,23 +36,26 @@
     </script>
 
     <script id="my-itinerary-template" type="text/x-handlebars-template">
-        <h3>{{property}}</h3> <b>Average Stars:{{stars}}</b>
-        <p><i>Type: {{type}}, Quadrant: {{subArea}}</i></p>
-        <p><b>Address:</b> {{address}}, {{zip}}</p>
-        <p><b>Hours:</b> {{hours}}</p>
-        <p><b>Amenities:</b> {{amenities}}</p>
-        <p><b>Child friendly:</b> {{childFriendly}}</p>
-        <form action="../me/review/{{_id}}" method="put">
-            <label for="POST-name">Add a review:</label>
-            <textarea id="review-body" rows="8" cols="30" required></textarea>
-            <input id="POST-name" type="text">
-            <input type="submit" value="Save" >
-        </form>
-        <form action="me/stars/{{_id}}" method="put">
-            Rate it! (between 1 and 5):
-            <input type="number" name="quantity" min="1" max="5">
-        </form>
-        <p><a href="me/delete/{{_id}}">Completed!</a></p>
+        <h3 id="itinerary-response-text"></h3>
+        <div id="{{_id}}">
+            <h3>{{property}}</h3> <b>Average Stars:{{stars}}</b>
+            <p><i>Type: {{type}}, Quadrant: {{subArea}}</i></p>
+            <p><b>Address:</b> {{address}}, {{zip}}</p>
+            <p><b>Hours:</b> {{hours}}</p>
+            <p><b>Amenities:</b> {{amenities}}</p>
+            <p><b>Child friendly:</b> {{childFriendly}}</p>
+            <form action="../me/review/{{_id}}" method="put">
+                <label for="POST-name">Add a review:</label>
+                <textarea id="review-body" rows="8" cols="30" required></textarea>
+                <input id="POST-name" type="text">
+                <input type="submit" value="Save" >
+            </form>
+            <form action="me/stars/{{_id}}" method="put">
+                Rate it! (between 1 and 5):
+                <input type="number" name="quantity" min="1" max="5">
+            </form>
+            <a href="../me/delete/{{_id}}"><button id="poi-completed-button" value="{{_id}}">Completed!</button></a>
+        </div>
     </script>
 
 </head>
