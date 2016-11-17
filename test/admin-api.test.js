@@ -33,7 +33,7 @@ describe('Admin:', () => {
       .send({email:'admin@somebody.com', password:'password', firstName: 'first-name', admin: true})
       .then(res => {
         assert.ok(res.body.token);
-        token = res.body.token; 
+        adminToken = res.body.token; 
       })
       .then(done)
       .catch(done);
@@ -51,7 +51,6 @@ describe('Admin:', () => {
       .catch(done);
   });
 
-  // it()
 
   it('Can not accomplish admin roles unless admin', done => {
     request
@@ -87,7 +86,7 @@ describe('Admin:', () => {
   it('DELETEs a poi', done => {
     request
       .delete(`/api/admin/poi/${somePark._id}`)
-      .set('authorization', token)
+      .set('authorization', adminToken)
       .then(res => {
         assert.deepEqual(res.body, somePark);
         done();
