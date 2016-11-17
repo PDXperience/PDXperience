@@ -81,7 +81,7 @@
 
   poiController.getId = function(ctx, next) {
 
-    var promise = $.getJSON('/api' + ctx.path);
+    var promise = $.getJSON('/api' + ctx.hash);
 
     promise
       .done(poi => {

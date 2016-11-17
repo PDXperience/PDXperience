@@ -86,8 +86,7 @@
   });
 
   userController.addItinerary = function(ctx, next) {
-    const path = ctx.path.split('/');
-    const id = path[path.length - 1];
+    const id = ctx.hash;
     const token = localStorage.getItem('token');
 
     $.ajax({
@@ -112,8 +111,7 @@
   };
 
   userController.deleteItinerary = function(ctx, next) {
-    const path = ctx.path.split('/');
-    const id = path[path.length - 1];
+    const id = ctx.hash;
     const token = localStorage.getItem('token');
 
     $.ajax({
