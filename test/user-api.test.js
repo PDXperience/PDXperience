@@ -10,12 +10,6 @@ const app = require('../lib/app');
 
 describe('User requests:', () => {
 
-  before( done => {
-    const drop = () => connection.db.dropDatabase(done);
-    if (connection.readyState === 1) drop();
-    else connection.on( 'open', drop );
-  });
-
   const request = chai.request(app);
   let token = '';
 
@@ -27,18 +21,18 @@ describe('User requests:', () => {
   };
 
   const user = {
-    email:'somebody@somebody.com',
+    email:'some-body@somebody.com',
     password:'password',
-    firstName: 'first-name', admin: true
+    firstName: 'Nathan',
+    admin: true
   };
 
   before(done => {
     request
       .post('/api/auth/signup')
-      .send({email:'somebody@somebody.com', password:'secret1234', firstName: 'Nathan', admin: true})
+      .send(user)
       .then(res => {
         assert.ok(res.body.token);
-        user._id = res.body._id;
         token = res.body.token;
       })
       .then(res => {
@@ -49,6 +43,7 @@ describe('User requests:', () => {
       })
       .then(res => {
         somePark._id = res.body._id;
+        somePark.__v = 0; 
         assert.ok(res.body);
         done();
       })
@@ -74,7 +69,7 @@ describe('User requests:', () => {
       .send({poiId: somePark._id})
       .then(res => {
         let expected = [somePark._id];
-        let itinerary = res.body.savedPoi;
+        let itinerary = res.body;
         assert.deepEqual(expected, itinerary);
         done(); 
       })
@@ -88,6 +83,7 @@ describe('User requests:', () => {
       .then(res => {
         let expected = {savedPoi: [{_id: somePark._id, property: somePark.property}]};
         let itinerary = res.body;
+        console.log('itinerary: ', itinerary);
         assert.deepEqual(expected, itinerary);
         done();
       })
@@ -95,18 +91,36 @@ describe('User requests:', () => {
   });
 
   it('PUTs a review and star rating on poi', done => {
+    let review = 'This park is really great';
     request
       .put(`/api/me/review/${somePark._id}`)
       .set('authorization', token)
       .send({
-        reviews: 'This park is really great',
-        stars:{
+        reviews: review,
+        stars: {
           rating: 4,
           author: user._id
         }
       })
       .then(res => {
-        console.log('poi with review', res.body);
+        let poiWithRating = res.body;
+        user.author = res.body.stars[0].author;
+        let expected = {
+          _id: somePark._id,
+          property: somePark.property,
+          type: somePark.type,
+          address: somePark.address,
+          hours: somePark.hours,
+          __v: somePark.__v,
+          reviews: [ `${review} -${user.firstName}` ],
+          stars:[{
+            rating: 4,
+            author: user.author,
+            _id: res.body.stars[0]._id
+          }],
+          amenities: []
+        };
+        assert.deepEqual(expected, poiWithRating);
         done();
       })
       .catch(done);
