@@ -1,9 +1,10 @@
 (function(module) {
-  $('#login-form').on('submit', function(event) {
+
+  $('#signin-form').on('submit', function(event) {
     console.log('clicked submit button');
     event.preventDefault();
-    var password= $('#POST-password').val();
-    var email = $('#POST-email').val();
+    var password= $('#POST-signin-password').val();
+    var email = $('#POST-signin-email').val();
 
     $.ajax({
       method:'POST',
@@ -16,13 +17,13 @@
         'password': password
       })
     })
+    .fail(err => {
+      $('#signin-response').append(err.responseText);
+      console.log(err);
+    })
     .done(res => {
       localStorage.setItem('token', res.body.token);
       console.log(res);
-    })
-    .fail(err => {
-      $('#form-response').append(err.responseText);
-      console.log(err);
     });
 
   });
