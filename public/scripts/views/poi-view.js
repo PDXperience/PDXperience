@@ -10,6 +10,9 @@
   poiView.renderType = function(poiHtml) {
     $('.poi').not('#type').empty();
     $('#type').append(poiHtml);  
+    $('#selectmenu').on('change', () => {
+      $('.poi').empty();
+    });
   };
 
   poiView.renderId = function(poiHtml) {
