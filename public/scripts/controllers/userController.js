@@ -1,7 +1,6 @@
 (function(module) {
 
   $('#signin-form').on('submit', function(event) {
-    console.log('clicked submit button');
     event.preventDefault();
     var password= $('#POST-signin-password').val();
     var email = $('#POST-signin-email').val();
@@ -28,7 +27,6 @@
   });
 
   $('#signup-form').on('submit', function(event) {
-    console.log('clicked submit button');
     event.preventDefault();
     var password= $('#POST-signup-password').val();
     var email = $('#POST-signup-email').val();
