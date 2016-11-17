@@ -31,7 +31,24 @@
     if ($(this).val() === 'all') {
       poiController.getAll();
     }
+    $('.poi').empty();
+
     poiController.getType($(this).val());
+  });
+
+  $('#location').on('click', function() {
+    function success(position) {
+      let coords = `${position.coords.latitude}/${position.coords.longitude}`;
+      poiController.getGeo(coords);
+      return coords;
+    }
+
+    function error(){
+      console.log('Unable to retrieve location');
+      return({code: 400, error: 'Unable to retrieve location'});
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error);
   });
 
   // call the GET all
@@ -74,9 +91,25 @@
       .done(poi => {
         var poiHtml = createOnePoiHtml(poi);
         poiView.renderId(poiHtml);
-      }).
-      fail(function () {
+      })
+      .fail(function () {
         console.log('something went wrong trying to get the parks');
+      });
+  };
+
+  poiController.getGeo = function(ctx, next) {
+    var promise = $.getJSON('/api/location/' + ctx);
+
+    promise
+      .done(poi => {
+        poi.forEach(location => {
+          var poiHtml = createTypeHtml(location);
+
+          poiView.renderType(poiHtml);
+        });
+      })
+      .fail(function() {
+        console.log('Get Geo did not work');
       });
   };
 

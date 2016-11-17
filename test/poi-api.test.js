@@ -107,12 +107,13 @@ describe('Poi:', () => {
           .get('/api/type/museum')
           .then(res => {
             let response = res.body;
+            console.log(response)
             let expected = { 
               property: compare.property,
-              type: compare.type,
               address: compare.address,
               hours: compare.hours,
               _id: compare._id,
+              subArea: compare.subArea,
               zip: Number(compare.zip)};
             assert.deepEqual(response, [expected]);
             done();
