@@ -130,8 +130,6 @@ describe('User requests:', () => {
       .delete(`/api/me/itineraries/${somePark._id}`)
       .set('authorization', token)
       .then(res => {
-      })
-      .then(res => {
         return request
           .get('/api/me/itineraries')
           .set('authorization', token)
@@ -145,13 +143,17 @@ describe('User requests:', () => {
       });
   });
 
-
-
-
-
-
-
-
-
+  it('DELETEs a user', done => {
+    request
+      .delete('/api/me/deleteuser')
+      .set('authorization', token)
+      .then(res => {
+        let deleteMessage = res.body.deleteMessage;
+        let expected = `${user.firstName}'s account has been deleted`;
+        assert.equal(expected, deleteMessage);
+        done();
+      })
+      .catch(done);
+  });
 
 });
