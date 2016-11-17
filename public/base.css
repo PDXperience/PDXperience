@@ -7,3 +7,16 @@ body {
 h1 {
     color: #039;
 }
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    font-weight: bold;
+    color: darkblue;
+}
+
+a {
+    color: black;
+}
