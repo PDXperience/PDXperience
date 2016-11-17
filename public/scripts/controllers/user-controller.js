@@ -71,14 +71,16 @@
         'content-type': 'application/json',
         'authorization': token
       },
-      data: JSON.stringify({ 'id': id })
+      data: JSON.stringify({ 'poiId': id })
     })
       .fail(err => {
-        $('#user-info').append(err.responseText);
+        $('#user-info').text("There was an error, please try again.").fadeIn('slow');
+        $('#user-info').delay(2500).fadeOut('slow');
         console.log(err);
       })
       .done(res => {
-        $('#user-info').append(res.savedPoi);
+        $('#user-info').text("Added to your itinerary.").fadeIn('slow');
+        $('#user-info').delay(2500).fadeOut('slow');
         console.log(res);
       });
 
