@@ -31,7 +31,6 @@ describe('User requests:', () => {
       .post('/api/auth/signup')
       .send({email:'somebody@somebody.com', password:'password', firstName: 'first-name', admin: true})
       .then(res => {
-        console.log('user: ', res.body);
         assert.ok(res.body.token);
         token = res.body.token;
       })
@@ -43,7 +42,6 @@ describe('User requests:', () => {
       })
       .then(res => {
         somePark._id = res.body._id;
-        console.log('poi: ', res.body);
         assert.ok(res.body);
         done();
       })
@@ -56,7 +54,6 @@ describe('User requests:', () => {
       .set('authorization', token)
       .then(res => {
         let expected = {savedPoi: []};
-        console.log('res: ', res.body);
         assert.deepEqual(res.body, expected);
         done();
       })
@@ -76,6 +73,21 @@ describe('User requests:', () => {
       })
       .catch(done);
   });
+
+  it('GETs itineraries after adding one', done => {
+    request
+      .get('/api/me/itineraries')
+      .set('authorization', token)
+      .then(res => {
+        let expected = {savedPoi: [{_id: somePark._id, property: somePark.property}]};
+        let itinerary = res.body;
+        assert.deepEqual(expected, itinerary);
+        done();
+      })
+      .catch(done);
+  });
+
+
 
 
 
