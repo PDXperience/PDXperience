@@ -17,10 +17,6 @@
     $('#id').append(poiHtml);  
   };
 
-  // poiView.renderGeo = function() => {
-
-  // };
-
   module.poiView = poiView;
 
 })(window);
