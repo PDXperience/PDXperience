@@ -84,8 +84,6 @@ describe('Poi model', () => {
       geo: 9809
     });
 
-    console.log('poi: ', poi);
-
     poi.validate(err => {
       expect(poi.geo).to.be.an('array');
       done();
@@ -102,7 +100,6 @@ describe('Poi model', () => {
     poi.stars.push({rating: 2, author: 34567});
     let avg = poi.getStars();
     let expected = 3.7;
-    console.log('avg: ', avg);
     assert.equal(expected, avg);
     done();
   });

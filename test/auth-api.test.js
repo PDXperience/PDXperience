@@ -9,14 +9,8 @@ const connection = require('../lib/setup-mongoose');
 const app = require('../lib/app');
 
 
-describe('User:', () => {
-	
-  before( done => {
-		  const drop = () => connection.db.dropDatabase( done );
-		  if( connection.readyState === 1 ) drop();
-		  else connection.on( 'open', drop );
-	  });
-
+describe('Authorization:', () => {
+  
   const request = chai.request(app);
   let firstToken = '';
 
@@ -68,6 +62,17 @@ describe('User:', () => {
       .catch(done);
   });
 
+  it('Allows a new admin to signup', done => {
+    request
+      .post('/api/auth/signup')
+      .send({email:'newadmin@somebody.com', password:'password', firstName: 'first', admin: true})
+      .then(res => {
+        assert.ok(res.body.token);
+        done();
+      })
+      .catch(done);
+  });
+
   it('Errors if you sign up with an already taken email address', done => {
     request
       .post('/api/auth/signup')
@@ -79,6 +84,16 @@ describe('User:', () => {
         done();
       });
   });
-  
+
+  it('Allows an admin to sign in', done => {
+    request
+      .post('/api/auth/signup')
+      .send({email:'somebody@somebody.com', password:'password', firstName: 'first-name', admin: true})
+      .then(res => {
+        assert.ok(res.body.token);
+      })
+      .then(done)
+      .catch(done);
+  });
 
 });
