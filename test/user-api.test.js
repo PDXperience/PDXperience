@@ -83,7 +83,6 @@ describe('User requests:', () => {
       .then(res => {
         let expected = {savedPoi: [{_id: somePark._id, property: somePark.property}]};
         let itinerary = res.body;
-        console.log('itinerary: ', itinerary);
         assert.deepEqual(expected, itinerary);
         done();
       })
@@ -124,6 +123,26 @@ describe('User requests:', () => {
         done();
       })
       .catch(done);
+  });
+
+  it('DELETEs a poi from itinerary', done => {
+    request
+      .delete(`/api/me/itineraries/${somePark._id}`)
+      .set('authorization', token)
+      .then(res => {
+      })
+      .then(res => {
+        return request
+          .get('/api/me/itineraries')
+          .set('authorization', token)
+          .then(res => {
+            let currentItinerary = res.body;
+            let expected = {savedPoi: []};
+            assert.deepEqual(expected, currentItinerary);
+            done();
+          })
+          .catch(done);
+      });
   });
 
 
