@@ -17,7 +17,12 @@
       })
     })
     .done(res => {
+      localStorage.setItem('token', res.body.token);
       console.log(res);
+    })
+    .fail(err => {
+      $('#form-response').append(err.responseText);
+      console.log(err);
     });
 
   });
