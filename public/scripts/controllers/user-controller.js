@@ -56,7 +56,7 @@
 
   var userController = {};
 
-  userController.getUser = function(ctx, next) {
+  userController.addItinerary = function(ctx, next) {
     console.log('CONTEXT', ctx);
   };
 

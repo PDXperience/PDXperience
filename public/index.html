@@ -17,7 +17,7 @@
         <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
         <p><b>Address:</b> {{address}}, {{zip}}</p>
         <p><b>Hours:</b> {{hours}}</p>
-        <p><a href="me/{{_id}}">Add to my itinerary</a></p>
+        <p><a href="../me/add/{{_id}}">Add to my itinerary</a></p>
     </script>
 
     <script id="view-one-template" type="text/x-handlebars-template">
@@ -28,7 +28,7 @@
         <p><b>Amenities:</b> {{amenities}}</p>
         <p><b>Child friendly:</b> {{childFriendly}}</p>
         <p><b>Reviews:</b> {{reviews}}</p>
-        <p><a href="me/{{_id}}">Add to my itinerary</a></p>
+        <p><a href="../me/add/{{_id}}">Add to my itinerary</a></p>
     </script>
 
     <script id="my-stars-template" type="text/x-handlebars-template">
@@ -42,7 +42,7 @@
         <p><b>Hours:</b> {{hours}}</p>
         <p><b>Amenities:</b> {{amenities}}</p>
         <p><b>Child friendly:</b> {{childFriendly}}</p>
-        <form action="me/review/{{_id}}" method="put">
+        <form action="../me/review/{{_id}}" method="put">
             <label for="POST-name">Add a review:</label>
             <textarea id="review-body" rows="8" cols="30" required></textarea>
             <input id="POST-name" type="text">
@@ -89,6 +89,8 @@
 
     <div id="user-info"></div>
 
+    <p>Select an activity to get started!</p>
+
     <select id="selectmenu">
         <option>--Select an activity type--</option>
         <option value="all">View All</option>
@@ -115,9 +117,9 @@
     <script src="scripts/views/poi-view.js"></script>
     <script src="scripts/views/user-view.js"></script>
     <!-- Controller Files -->
-    <script src="scripts/controllers/adminController.js"></script>
-    <script src="scripts/controllers/poiController.js"></script>
-    <script src="scripts/controllers/userController.js"></script>
+    <script src="scripts/controllers/admin-controller.js"></script>
+    <script src="scripts/controllers/poi-controller.js"></script>
+    <script src="scripts/controllers/user-controller.js"></script>
     <script src="scripts/controllers/routes.js"></script>
 
 </body>
