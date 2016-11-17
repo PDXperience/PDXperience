@@ -2,6 +2,11 @@
 
   var userController = {};
 
+  function createItineraryHtml(jsonData) {
+    const template = Handlebars.compile($('#my-itinerary-template').html());
+    return template(jsonData);
+  };
+
   $('#signin-form').on('submit', function(event) {
     event.preventDefault();
     var password= $('#POST-signin-password').val();
@@ -56,10 +61,32 @@
       });
   });
 
+  $('#itinerarybutton').on('click', function(event) {
+    event.preventDefault();
+    const token = localStorage.getItem('token');
+
+    $.ajax({
+      method:'GET',
+      url: '/api/me/itineraries',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': token
+      }
+    })
+      .fail(err => {
+        console.log(err);
+      })
+      .done(type => {
+        console.log(type);
+        type.savedPoi.forEach(poi => {
+          var poiHtml = createItineraryHtml(poi);
+          poiView.renderType(poiHtml);
+         });
+      });
+
+  });
 
   userController.addItinerary = function(ctx, next) {
-    console.log('CONTEXT', ctx);
-
     const path = ctx.path.split('/');
     const id = path[path.length - 1];
     const token = localStorage.getItem('token');
