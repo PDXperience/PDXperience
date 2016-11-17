@@ -22,10 +22,6 @@
     return template(jsonData);
   };
 
-  function createItineraryHtml(jsonData) {
-    const template = Handlebars.compile($('#my-itinerary-template').html());
-    return template(jsonData);
-  };
 
   $('#selectmenu').on('change', function() {
     if ($(this).val() === 'all') {
