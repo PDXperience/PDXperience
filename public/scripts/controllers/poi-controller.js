@@ -12,11 +12,6 @@
     return template(jsonData);
   };
 
-  function createGeoHtml(jsonData) {
-    const template = Handlebars.compile($('#view-geo-template').html());
-    return template(jsonData);
-  };
-
   function createOnePoiHtml(jsonData) {
     const template = Handlebars.compile($('#view-one-template').html());
     return template(jsonData);
@@ -108,9 +103,9 @@
     promise
       .done(poi => {
         poi.forEach(location => {
-          var poiHtml = createGeoHtml(location);
+          var poiHtml = createTypeHtml(location);
 
-          poiView.renderGeo(poiHtml);
+          poiView.renderType(poiHtml);
         });
       })
       .fail(function() {

@@ -20,14 +20,6 @@
         <p><a href="../me/add/{{_id}}">Add to my itinerary</a></p>
     </script>
 
-    <script id="view-geo-template" type="text/x-handlebars-template">
-        <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
-        <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
-        <p><b>Address:</b> {{address}}, {{zip}}</p>
-        <p><b>Hours:</b> {{hours}}</p>
-        <p><a href="../me/add/{{_id}}">Add to my itinerary</a></p>
-    </script>
-
     <script id="view-one-template" type="text/x-handlebars-template">
         <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
         <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
@@ -114,7 +106,6 @@
     <div id="all" class="poi"></div>
     <div id="type" class="poi"></div>
     <div id="id" class="poi"></div>
-    <div id="geo" class="poi"></div>
 
 
     <!-- Scripts go here! -->
