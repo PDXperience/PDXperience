@@ -1,3 +1,5 @@
+const path = require('path');
+require('dotenv').load({path: path.join(__dirname, '.env.test')});
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const assert = chai.assert;
@@ -28,6 +30,22 @@ describe('Poi:', () => {
       })
       .then(done)
       .catch(done);
+
+    request
+      .post('/api/admin')
+      .set('authorization', token)
+      .send(somePark)
+      .then(res => {
+        const poi = res.body;
+        assert.ok(poi._id);
+        somePark.__v = 0;
+        somePark._id = poi._id;
+        somePark.reviews = poi.reviews;
+        somePark.amenities = poi.amenities;
+        somePark.stars = poi.stars;
+        done();
+      })
+      .catch(done);
   });
 
   const somePark = {
@@ -42,24 +60,6 @@ describe('Poi:', () => {
       .get('/api')
       .then( res => {
         assert.deepEqual(res.body, []);
-        done();
-      })
-      .catch(done);
-  });
-
-  it('POSTs a new poi', done => {
-    request
-      .post('/api/admin')
-      .set('authorization', token)
-      .send(somePark)
-      .then(res => {
-        const poi = res.body;
-        assert.ok(poi._id);
-        somePark.__v = 0;
-        somePark._id = poi._id;
-        somePark.reviews = poi.reviews;
-        somePark.amenities = poi.amenities;
-        somePark.stars = poi.stars;
         done();
       })
       .catch(done);
@@ -98,17 +98,6 @@ describe('Poi:', () => {
           _id: somePark._id
         };
         assert.deepEqual(res.body, [expected]);
-        done();
-      })
-      .catch(done);
-  });
-
-  it('DELETEs a poi', done => {
-    request
-      .delete(`/api/admin/poi/${somePark._id}`)
-      .set('authorization', token)
-      .then(res => {
-        assert.deepEqual(res.body, somePark);
         done();
       })
       .catch(done);
