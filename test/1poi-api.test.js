@@ -17,6 +17,12 @@ describe('Poi:', () => {
     else connection.on( 'open', drop );
   });
 
+  after( done => {
+    const drop = () => connection.db.dropDatabase(done);
+    if (connection.readyState === 1) drop();
+    else connection.on( 'open', drop );
+  });
+
   const request = chai.request(app);
   let token = '';
   let somePark = {
@@ -26,7 +32,7 @@ describe('Poi:', () => {
     zip: '97214',
     subArea: 'NW',
     hours: 'dawn to dusk',
-    geo: [-122.550905,45.509017]
+    geo: [-122.550905, 45.509017]
   };
   let compare = {
     property: 'compare museum',
@@ -102,7 +108,6 @@ describe('Poi:', () => {
       .catch(done);
   });
 
-
   it('Gets by type', done => {
     request
       .post('/api/admin')
@@ -151,6 +156,25 @@ describe('Poi:', () => {
   it('Gets by area', done => {
     request
       .get('/api/area/SW')
+      .then(res => {
+        let response = res.body;
+        let expected = {
+          property: compare.property,
+          type: compare.type,
+          address: compare.address,
+          hours: compare.hours,
+          _id: compare._id,
+          zip: Number(compare.zip)
+        };
+        assert.deepEqual(response, [expected]);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('Gets by geo location', done => {
+    request
+      .get('/api/location/45.496292/-122.616553')
       .then(res => {
         let response = res.body;
         let expected = {
