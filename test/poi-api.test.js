@@ -1,3 +1,5 @@
+const path = require('path');
+require('dotenv').load({path: path.join(__dirname, '.env.test')});
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const assert = chai.assert;
@@ -9,57 +11,63 @@ const app = require('../lib/app');
 
 describe('Poi:', () => {
 
-  before( done => {
-    const drop = () => connection.db.dropDatabase(done);
-    if (connection.readyState === 1) drop();
-    else connection.on( 'open', drop );
-  });
-
   const request = chai.request(app);
   let token = '';
+  let somePark = {
+    property: 'some park',
+    type: 'park',
+    address: '123 some st',
+    zip: '97214',
+    subArea: 'NW',
+    hours: 'dawn to dusk',
+    geo: [-122.550905, 45.509017]
+  };
+  let compare = {
+    property: 'compare museum',
+    type: 'museum',
+    address: '123 some st',
+    zip: '97204',
+    subArea: 'SW',
+    geo: [-122.616553,45.496292],
+    hours: 'dawn to dusk'
+  };;
 
   before(done => {
     request
       .post('/api/auth/signup')
-      .send({email:'somebody@somebody.com', password:'password', firstName: 'first-name', admin: true})
+      .send({email:'poi@somebody.com', password:'password', firstName: 'first-name', admin: true})
       .then(res => {
-        assert.ok(res.body.token);
         token = res.body.token; 
       })
       .then(done)
       .catch(done);
   });
 
-  const somePark = {
-    property: 'some park',
-    type: 'park',
-    address: '123 some st',
-    hours: 'dawn to dusk'
-  };
-
-  it('GETs all', done => {
-    request
-      .get('/api')
-      .then( res => {
-        assert.deepEqual(res.body, []);
-        done();
-      })
-      .catch(done);
-  });
-
-  it('POSTs a new poi', done => {
+  before(done => {
     request
       .post('/api/admin')
       .set('authorization', token)
       .send(somePark)
       .then(res => {
-        const poi = res.body;
-        assert.ok(poi._id);
-        somePark.__v = 0;
-        somePark._id = poi._id;
-        somePark.reviews = poi.reviews;
-        somePark.amenities = poi.amenities;
-        somePark.stars = poi.stars;
+        somePark = res.body;
+        done();
+      })
+      .catch(done);
+  });
+
+  it('GETs all', done => {
+    request
+      .get('/api')
+      .then(res => {
+        let expected = { 
+          property: somePark.property,
+          type: somePark.type,
+          address: somePark.address,
+          hours: somePark.hours,
+          _id: somePark._id,
+          zip: somePark.zip
+        };
+        assert.deepEqual(res.body, [expected]);
         done();
       })
       .catch(done);
@@ -76,6 +84,8 @@ describe('Poi:', () => {
           type: somePark.type,
           address: somePark.address,
           hours: somePark.hours,
+          subArea: somePark.subArea,
+          zip: somePark.zip,
           reviews: somePark.reviews,
           stars: somePark.stars,
           amenities: somePark.amenities,
@@ -86,29 +96,84 @@ describe('Poi:', () => {
       .catch(done);
   });
 
-  it('GETs all after post', done => {
+  it('Gets by type', done => {
     request
-      .get('/api')
+      .post('/api/admin')
+      .set('authorization', token)
+      .send(compare)
       .then(res => {
-        let expected = { 
+        compare = res.body;
+        return request 
+          .get('/api/type/museum')
+          .then(res => {
+            let response = res.body;
+            let expected = { 
+              property: compare.property,
+              type: compare.type,
+              address: compare.address,
+              hours: compare.hours,
+              _id: compare._id,
+              zip: Number(compare.zip)};
+            assert.deepEqual(response, [expected]);
+            done();
+          })
+          .catch(done);
+      })
+      .catch(done);
+  });
+
+  it('Gets by zip', done => {
+    request
+      .get('/api/zip/97214')
+      .then(res => {
+        let response = res.body;
+        let expected = {
           property: somePark.property,
           type: somePark.type,
           address: somePark.address,
           hours: somePark.hours,
-          _id: somePark._id
+          _id: somePark._id,
+          zip: Number(somePark.zip)
         };
-        assert.deepEqual(res.body, [expected]);
+        assert.deepEqual(response, [expected]);
         done();
       })
       .catch(done);
   });
 
-  it('DELETEs a poi', done => {
+  it('Gets by area', done => {
     request
-      .delete(`/api/admin/poi/${somePark._id}`)
-      .set('authorization', token)
+      .get('/api/area/SW')
       .then(res => {
-        assert.deepEqual(res.body, somePark);
+        let response = res.body;
+        let expected = {
+          property: compare.property,
+          type: compare.type,
+          address: compare.address,
+          hours: compare.hours,
+          _id: compare._id,
+          zip: Number(compare.zip)
+        };
+        assert.deepEqual(response, [expected]);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('Gets by geo location', done => {
+    request
+      .get('/api/location/45.496292/-122.616553')
+      .then(res => {
+        let response = res.body;
+        let expected = {
+          property: compare.property,
+          type: compare.type,
+          address: compare.address,
+          hours: compare.hours,
+          _id: compare._id,
+          zip: Number(compare.zip)
+        };
+        assert.deepEqual(response, [expected]);
         done();
       })
       .catch(done);
