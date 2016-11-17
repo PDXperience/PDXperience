@@ -20,6 +20,14 @@
         <p><a href="../me/add/{{_id}}">Add to my itinerary</a></p>
     </script>
 
+    <script id="view-geo-template" type="text/x-handlebars-template">
+        <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
+        <p><b>Address:</b> {{address}}, {{zip}}</p>
+        <p><b>Hours:</b> {{hours}}</p>
+        <p><a href="../me/add/{{_id}}">Add to my itinerary</a></p>
+    </script>
+
     <script id="view-one-template" type="text/x-handlebars-template">
         <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
         <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
@@ -100,19 +108,19 @@
         <option value="natural_area">Natural Areas</option>
     </select>
 
+    <p>Press button to find activities near you.</p>
+    <button id="location">Places near me</button>
+
     <div id="all" class="poi"></div>
     <div id="type" class="poi"></div>
     <div id="id" class="poi"></div>
+    <div id="geo" class="poi"></div>
 
 
     <!-- Scripts go here! -->
     <script src="scripts/vendor/jquery-2.1.4.js"></script>
     <script src="scripts/vendor/handlebars.js"></script>
     <script src="scripts/vendor/page.js"></script>
-    <!-- Model Files -->
-    <script src="scripts/models/admin.js"></script>
-    <script src="scripts/models/poi.js"></script>
-    <script src="scripts/models/user.js"></script>
     <!-- View Files -->
     <script src="scripts/views/poi-view.js"></script>
     <script src="scripts/views/user-view.js"></script>

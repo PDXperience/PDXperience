@@ -10,15 +10,21 @@
   poiView.renderType = function(poiHtml) {
     $('.poi').not('#type').empty();
     $('#type').append(poiHtml);  
-    $('#selectmenu').on('change', () => {
-      $('.poi').empty();
-    });
   };
 
   poiView.renderId = function(poiHtml) {
     $('.poi').not('#id').empty();
     $('#id').append(poiHtml);  
   };
+
+  poiView.renderGeo = function(poiHtml) {
+    $('.poi').not('#geo').empty();
+    $('#geo').append(poiHtml);
+  };
+
+  // poiView.renderGeo = function() => {
+
+  // };
 
   module.poiView = poiView;
 
