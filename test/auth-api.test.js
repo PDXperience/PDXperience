@@ -9,19 +9,19 @@ const connection = require('../lib/setup-mongoose');
 const app = require('../lib/app');
 
 
-describe('User:', () => {
+describe('Authorization:', () => {
 	
-  before( done => {
-		  const drop = () => connection.db.dropDatabase( done );
-		  if( connection.readyState === 1 ) drop();
-		  else connection.on( 'open', drop );
-	  });
+  // before( done => {
+	// 	  const drop = () => connection.db.dropDatabase( done );
+	// 	  if( connection.readyState === 1 ) drop();
+	// 	  else connection.on( 'open', drop );
+	//   });
 
-  after( done => {
-    const drop = () => connection.db.dropDatabase(done);
-    if (connection.readyState === 1) drop();
-    else connection.on( 'open', drop );
-  });
+  // after( done => {
+  //   const drop = () => connection.db.dropDatabase(done);
+  //   if (connection.readyState === 1) drop();
+  //   else connection.on( 'open', drop );
+  // });
   
   const request = chai.request(app);
   let firstToken = '';
@@ -77,7 +77,7 @@ describe('User:', () => {
   it('Allows a new admin to signup', done => {
     request
       .post('/api/auth/signup')
-      .send({email:'admin@somebody.com', password:'password', firstName: 'first', admin: true})
+      .send({email:'newadmin@somebody.com', password:'password', firstName: 'first', admin: true})
       .then(res => {
         assert.ok(res.body.token);
         done();

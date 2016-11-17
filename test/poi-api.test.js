@@ -11,18 +11,6 @@ const app = require('../lib/app');
 
 describe('Poi:', () => {
 
-  before( done => {
-    const drop = () => connection.db.dropDatabase(done);
-    if (connection.readyState === 1) drop();
-    else connection.on( 'open', drop );
-  });
-
-  after( done => {
-    const drop = () => connection.db.dropDatabase(done);
-    if (connection.readyState === 1) drop();
-    else connection.on( 'open', drop );
-  });
-
   const request = chai.request(app);
   let token = '';
   let somePark = {
