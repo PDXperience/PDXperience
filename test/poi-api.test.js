@@ -19,18 +19,27 @@ describe('Poi:', () => {
 
   const request = chai.request(app);
   let token = '';
+  const somePark = {
+    property: 'some park',
+    type: 'park',
+    address: '123 some st',
+    hours: 'dawn to dusk'
+  };
 
   before(done => {
     request
       .post('/api/auth/signup')
-      .send({email:'somebody@somebody.com', password:'password', firstName: 'first-name', admin: true})
+      .send({email:'poi@somebody.com', password:'password', firstName: 'first-name', admin: true})
       .then(res => {
+        console.log(res.body.token);
         assert.ok(res.body.token);
         token = res.body.token; 
       })
       .then(done)
       .catch(done);
+  });
 
+  before(done => {
     request
       .post('/api/admin')
       .set('authorization', token)
@@ -48,22 +57,6 @@ describe('Poi:', () => {
       .catch(done);
   });
 
-  const somePark = {
-    property: 'some park',
-    type: 'park',
-    address: '123 some st',
-    hours: 'dawn to dusk'
-  };
-
-  it('GETs all', done => {
-    request
-      .get('/api')
-      .then( res => {
-        assert.deepEqual(res.body, []);
-        done();
-      })
-      .catch(done);
-  });
 
   it('GETs by id', done => {
     request

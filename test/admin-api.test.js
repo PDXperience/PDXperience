@@ -51,6 +51,17 @@ describe('Admin:', () => {
       .catch(done);
   });
 
+  it('Will not accomplish admin without sign in', done => {
+    request
+      .post('/api/admin')
+      .send(somePark)
+      .then(res => done('Error: status should not be 200', res))
+      .catch(res => {
+        assert.equal(res.status, 403);
+        assert.equal(res.response.text, '{"error":"token error--please login again"}')
+        done();
+      });
+  });
 
   it('Can not accomplish admin roles unless admin', done => {
     request
