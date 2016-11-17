@@ -26,12 +26,19 @@ describe('User requests:', () => {
     hours: 'dawn to dusk'
   };
 
+  const user = {
+    email:'somebody@somebody.com',
+    password:'password',
+    firstName: 'first-name', admin: true
+  };
+
   before(done => {
     request
       .post('/api/auth/signup')
-      .send({email:'somebody@somebody.com', password:'password', firstName: 'first-name', admin: true})
+      .send({email:'somebody@somebody.com', password:'secret1234', firstName: 'Nathan', admin: true})
       .then(res => {
         assert.ok(res.body.token);
+        user._id = res.body._id;
         token = res.body.token;
       })
       .then(res => {
@@ -82,6 +89,24 @@ describe('User requests:', () => {
         let expected = {savedPoi: [{_id: somePark._id, property: somePark.property}]};
         let itinerary = res.body;
         assert.deepEqual(expected, itinerary);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('PUTs a review and star rating on poi', done => {
+    request
+      .put(`/api/me/review/${somePark._id}`)
+      .set('authorization', token)
+      .send({
+        reviews: 'This park is really great',
+        stars:{
+          rating: 4,
+          author: user._id
+        }
+      })
+      .then(res => {
+        console.log('poi with review', res.body);
         done();
       })
       .catch(done);
