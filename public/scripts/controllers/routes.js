@@ -1,14 +1,8 @@
 // front-end routing
 
+page('/id/:id', poiController.getId);
+// page('/me', userController.getUser);
 
-page('/all', poiController.getAll);
-page('/parks', poiController.getParks);
-page('/museums', poiController.getMuseums);
-page('/theatres', poiController.getTheatres);
-
-
-
-//page('/me', userController.reveal);
-//page('/admin', adminController.reveal);
+// //page('/admin', adminController.reveal);
 
 page();

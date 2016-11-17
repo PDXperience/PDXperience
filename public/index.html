@@ -6,20 +6,28 @@
 
     <!-- HANDLEBARS TEMPLATES GO HERE -->
     <script id="view-many-template" type="text/x-handlebars-template">
-        <a href="id/:{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
-        <p>Address: {{address}}</p>
+        <a href="../id/{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
+        <p>Address: {{address}}, {{zip}}</p>
         <p>Hours: {{hours}}</p>
     </script>
 
+    <script id="view-type-template" type="text/x-handlebars-template">
+        <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
+        <p><b>Address:</b> {{address}}, {{zip}}</p>
+        <p><b>Hours:</b> {{hours}}</p>
+        <p><a href="me/{{_id}}">Add to my itinerary</a></p>
+    </script>
+
     <script id="view-one-template" type="text/x-handlebars-template">
-        <h3>{{property}}</h3> <b>Average Stars:{{stars}}</b>
-        <p><i>Type: {{type}}, Quadrant: {{subArea}}</i></p>
+        <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
         <p><b>Address:</b> {{address}}, {{zip}}</p>
         <p><b>Hours:</b> {{hours}}</p>
         <p><b>Amenities:</b> {{amenities}}</p>
         <p><b>Child friendly:</b> {{childFriendly}}</p>
         <p><b>Reviews:</b> {{reviews}}</p>
-        <p><a href="me/:{{_id}}">Add to my itinerary</a></p>
+        <p><a href="me/{{_id}}">Add to my itinerary</a></p>
     </script>
 
     <script id="my-stars-template" type="text/x-handlebars-template">
@@ -33,39 +41,50 @@
         <p><b>Hours:</b> {{hours}}</p>
         <p><b>Amenities:</b> {{amenities}}</p>
         <p><b>Child friendly:</b> {{childFriendly}}</p>
-        <form action="me/review/:{{_id}}" method="put">
+        <form action="me/review/{{_id}}" method="put">
             <label for="POST-name">Add a review:</label>
             <textarea id="review-body" rows="8" cols="30" required></textarea>
             <input id="POST-name" type="text">
             <input type="submit" value="Save" >
         </form>
-        <form action="me/stars/:{{_id}}" method="put">
+        <form action="me/stars/{{_id}}" method="put">
             Rate it! (between 1 and 5):
             <input type="number" name="quantity" min="1" max="5">
         </form>
-        <p><a href="me/delete/:{{_id}}">Completed!</a></p>
+        <p><a href="me/delete/{{_id}}">Completed!</a></p>
     </script>
 
 </head>
 <body>
     <h1>PDXperience</h1>
     <p>Portland's tool to get to know your city better</p>
-    <select>
-        <option>Parks</option>
-        <option>Museums</option>
-        <option>Theatre Houses</option>
+
+    <div id="login">
+        <form id="login-form">
+            <label for="POST-email">email:</label>
+            <input id="POST-email" type="text">
+            <label for="POST-password">password:</label>
+            <input id="POST-password" type="password">
+            <input type="submit" value="Login">
+        </form>
+
+        <div id="form-response"></div>
+    </div>
+
+    <div id="user-info"></div>
+
+    <select id="selectmenu">
+        <option>--Select an activity type--</option>
+        <option value="all">View All</option>
+        <option value="park">Parks</option>
+        <option value="museum">Museums</option>
+        <option value="garden">Gardens</option>
+        <option value="natural_area">Natural Areas</option>
     </select>
 
-
-    <ul>
-        <li><a href="all">Get all points of interest</a></li>
-        <li><a href="parks">Get all parks</a></li>
-        <li><a href="museums">Get all museums</a></li>
-        <li><a href="theatres">Get all theatres</a></li>
-    </ul>
-
-
-    <div id="testdiv"></div>
+    <div id="all" class="poi"></div>
+    <div id="type" class="poi"></div>
+    <div id="id" class="poi"></div>
 
 
     <!-- Scripts go here! -->
@@ -77,7 +96,7 @@
     <script src="scripts/models/poi.js"></script>
     <script src="scripts/models/user.js"></script>
     <!-- View Files -->
-    <!-- script src="scripts/views/"></script -->
+    <script src="scripts/views/poi-view.js"></script>
     <!-- Controller Files -->
     <script src="scripts/controllers/adminController.js"></script>
     <script src="scripts/controllers/poiController.js"></script>
