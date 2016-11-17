@@ -42,6 +42,7 @@ describe('User requests:', () => {
           .send(somePark);
       })
       .then(res => {
+        somePark._id = res.body._id;
         console.log('poi: ', res.body);
         assert.ok(res.body);
         done();
@@ -58,6 +59,20 @@ describe('User requests:', () => {
         console.log('res: ', res.body);
         assert.deepEqual(res.body, expected);
         done();
+      })
+      .catch(done);
+  });
+
+  it('PUTs poi in itineraries', done => {
+    request
+      .put('/api/me/itineraries')
+      .set('authorization', token)
+      .send({poiId: somePark._id})
+      .then(res => {
+        let expected = [somePark._id];
+        let itinerary = res.body.savedPoi;
+        assert.deepEqual(expected, itinerary);
+        done(); 
       })
       .catch(done);
   });
