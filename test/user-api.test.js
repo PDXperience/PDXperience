@@ -55,7 +55,8 @@ describe('User requests:', () => {
       .get('/api/me/itineraries')
       .set('authorization', token)
       .then(res => {
-        let expected = {savedPoi: []};
+        user._id = res.body._id;
+        let expected = {_id: user._id, savedPoi: []};
         assert.deepEqual(res.body, expected);
         done();
       })
@@ -81,8 +82,21 @@ describe('User requests:', () => {
       .get('/api/me/itineraries')
       .set('authorization', token)
       .then(res => {
-        let expected = {savedPoi: [{_id: somePark._id, property: somePark.property}]};
         let itinerary = res.body;
+        somePark.amenities = res.body.savedPoi[0].amenities;
+        somePark.stars = res.body.savedPoi[0].stars;
+        let expected = {
+          _id: user._id,
+          savedPoi: [{
+            _id: somePark._id,
+            property: somePark.property,
+            type: somePark.type,
+            address: somePark.address,
+            hours: somePark.hours,
+            stars: somePark.stars,
+            amenities: somePark.amenities
+          }]
+        };
         assert.deepEqual(expected, itinerary);
         done();
       })
@@ -135,7 +149,7 @@ describe('User requests:', () => {
           .set('authorization', token)
           .then(res => {
             let currentItinerary = res.body;
-            let expected = {savedPoi: []};
+            let expected = {_id: user._id, savedPoi: []};
             assert.deepEqual(expected, currentItinerary);
             done();
           })
