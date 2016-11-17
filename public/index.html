@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>PDXperience</title>
     <link rel="stylesheet" type="text/css" href="./base.css">
+    <link rel="stylesheet" type="text/css" href="./scripts/vendor/rating.css">
 
     <!-- HANDLEBARS TEMPLATES GO HERE -->
     <script id="view-many-template" type="text/x-handlebars-template">
@@ -14,6 +15,13 @@
 
     <script id="view-type-template" type="text/x-handlebars-template">
         <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <div class="star-rating">
+        <input type="radio" name="example" class="rating" value="1" />
+        <input type="radio" name="example" class="rating" value="2" />
+        <input type="radio" name="example" class="rating" value="3" />
+        <input type="radio" name="example" class="rating" value="4" />
+        <input type="radio" name="example" class="rating" value="5" />
+        </div>
         <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
         <p><b>Address:</b> {{address}}, {{zip}}</p>
         <p><b>Hours:</b> {{hours}}</p>
@@ -22,6 +30,13 @@
 
     <script id="view-one-template" type="text/x-handlebars-template">
         <a href="../id/{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+        <div id="star-rating">
+        <input type="radio" name="example" class="rating" value="1" />
+        <input type="radio" name="example" class="rating" value="2" />
+        <input type="radio" name="example" class="rating" value="3" />
+        <input type="radio" name="example" class="rating" value="4" />
+        <input type="radio" name="example" class="rating" value="5" />
+        </div>
         <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
         <p><b>Address:</b> {{address}}, {{zip}}</p>
         <p><b>Hours:</b> {{hours}}</p>
@@ -110,6 +125,7 @@
 
     <!-- Scripts go here! -->
     <script src="scripts/vendor/jquery-2.1.4.js"></script>
+    <script src="scripts/vendor/rating.js"></script>
     <script src="scripts/vendor/handlebars.js"></script>
     <script src="scripts/vendor/page.js"></script>
     <!-- View Files -->

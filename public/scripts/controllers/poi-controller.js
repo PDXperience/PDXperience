@@ -36,6 +36,12 @@
     poiController.getType($(this).val());
   });
 
+  $('.star-rating').on('change', function() {
+    let star = Number(this.value);
+    let result = JSON.stringify({'stars': [{'rating': star}]});
+    poiController.sendStar(result);
+  })
+
   $('#location').on('click', function() {
     function success(position) {
       let coords = `${position.coords.latitude}/${position.coords.longitude}`;
@@ -62,6 +68,7 @@
           var poiHtml = createManyPoiHtml(poi);
           poiView.renderAll(poiHtml);
         });
+
       })
       .fail(function () {
         $('#testdiv').append('<p>Oh no, something went wrong!</p>');
@@ -76,7 +83,16 @@
         type.forEach(poi => {
           var poiHtml = createTypeHtml(poi);
           poiView.renderType(poiHtml);
+
         });
+        $('.star-rating').rating();
+        $('.star').on('click', function() {
+          console.log(this)
+          let star = $(this).attr('title');
+          console.log(star)
+          let result = JSON.stringify({'stars': [{'rating': star}]});
+          poiController.sendStar(result);
+        })
       })
       .fail(function () {
         console.log('something went wrong trying to get the parks');
@@ -91,6 +107,7 @@
       .done(poi => {
         var poiHtml = createOnePoiHtml(poi);
         poiView.renderId(poiHtml);
+        $('.star-rating').rating()
       })
       .fail(function () {
         console.log('something went wrong trying to get the parks');
@@ -107,11 +124,31 @@
 
           poiView.renderType(poiHtml);
         });
+        $('.star-rating').rating()
       })
       .fail(function() {
         console.log('Get Geo did not work');
       });
   };
+
+  poiController.sendStar = function(ctx, next) {
+    console.log(ctx, 'ctx')
+    $.ajax({
+      type: 'PUT',
+      url: '/api/me/review/582cb4b304a8fdc5a483eabf',
+      headers: {
+        'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4MmQwOWViYWIyNjYxMjU5YThhMDYzMSIsIm5hbWUiOiJHbG9yaWEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTQ3OTM0NjcyM30.C9KZHgJbm4q54wYKaWM3d1j_wi3ZtD9TY6UsIkE39mY',
+        'content-type': 'application/json'
+      },
+      data: ctx
+    })
+    .fail(err => {
+      console.log(err);
+    })
+    .done(res => {
+      console.log('DONE')
+    })
+  }
 
   module.poiController = poiController;
 

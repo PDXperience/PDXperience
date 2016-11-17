@@ -27,7 +27,7 @@ describe('User requests:', () => {
   };
 
   const user = {
-    email:'somebody@somebody.com',
+    email:'1somebody@somebody.com',
     password:'password',
     firstName: 'first-name', admin: true
   };
