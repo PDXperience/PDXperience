@@ -76,12 +76,9 @@ label {
     background-color:#ccd6ea;
 }
 
-.star-rating {
-    text-align:center;
-    margin:0 auto;
-}
-
 .stars {
+    display:inline-block;
+    padding-top:10px;
     text-align:center;
     margin:0 auto;
 }
