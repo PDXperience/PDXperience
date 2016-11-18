@@ -81,8 +81,7 @@
 
   poiController.getId = function(ctx, next) {
 
-    var promise = $.getJSON('/api' + ctx.hash);
-
+    var promise = $.getJSON('/api/id/' + ctx.hash);
     promise
       .done(poi => {
         var poiHtml = createOnePoiHtml(poi);

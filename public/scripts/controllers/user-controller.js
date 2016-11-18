@@ -29,6 +29,9 @@
     })
     .done(res => {
       localStorage.setItem('token', res.token);
+      $(this).hide();
+      $('.log-menu').hide();
+      $('#itinerary-div').css('display', 'block');
       console.log(res);
     });
   });
@@ -57,6 +60,9 @@
       })
       .done(res => {
         localStorage.setItem('token', res.token);
+        $(this).hide();
+        $('.log-menu').hide();
+        $('#itinerary-div').css('display', 'block');
         console.log(res);
       });
   });
@@ -80,8 +86,8 @@
         console.log(type);
         type.savedPoi.forEach(poi => {
           var poiHtml = createItineraryHtml(poi);
-          poiView.renderType(poiHtml);
-         });
+          poiView.renderItinerary(poiHtml);
+        });
       });
   });
 
