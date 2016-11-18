@@ -150,7 +150,31 @@
         $('#' + id).delay(1000).fadeOut('slow');
         $message.delay(2500).fadeOut('slow');
       });
+  };
 
+  userController.addReview = function(ctx, next) {
+    const id = ctx.hash;
+    const token = localStorage.getItem('token');
+
+    $.ajax({
+      method:'PUT',
+      url: '/api/me/itineraries',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': token
+      },
+      data: JSON.stringify({ 'poiId': id })
+    })
+      .fail(err => {
+        $('#user-info').text("There was an error, please try again.").fadeIn('slow');
+        $('#user-info').delay(2500).fadeOut('slow');
+        console.log(err);
+      })
+      .done(res => {
+        $('#user-info').text("Added to your itinerary.").fadeIn('slow');
+        $('#user-info').delay(2500).fadeOut('slow');
+        console.log(res);
+      });
   };
 
   module.userController = userController;
