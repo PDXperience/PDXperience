@@ -131,7 +131,7 @@
     let token = localStorage.getItem('token');
     $.ajax({
       type: 'PUT',
-      url: '/api/me/review/' + results.id,
+      url: '/api/me/stars/' + results.id,
       headers: {
         'authorization': token,
         'content-type': 'application/json'
