@@ -86,8 +86,8 @@
         console.log(type);
         type.savedPoi.forEach(poi => {
           var poiHtml = createItineraryHtml(poi);
-          poiView.renderType(poiHtml);
-         });
+          poiView.renderItinerary(poiHtml);
+        });
       });
   });
 

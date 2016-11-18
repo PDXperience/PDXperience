@@ -17,6 +17,11 @@
     $('#id').append(poiHtml);  
   };
 
+  poiView.renderItinerary = function(poiHtml) {
+    $('.poi').not('#itinerary').empty();
+    $('#itinerary').append(poiHtml);  
+  };
+
   module.poiView = poiView;
 
 })(window);
