@@ -25,11 +25,12 @@
     })
     .fail(err => {
       $('#signin-response').append(err.responseText);
-      console.log(err);
     })
     .done(res => {
       localStorage.setItem('token', res.token);
-      console.log(res);
+      $(this).hide();
+      $('.log-menu').hide();
+      $('#itinerary-div').css('display', 'block');
     });
   });
 
@@ -57,12 +58,16 @@
       })
       .done(res => {
         localStorage.setItem('token', res.token);
+        $(this).hide();
+        $('.log-menu').hide();
+        $('#itinerary-div').css('display', 'block');
         console.log(res);
       });
   });
 
   $('#itinerarybutton').on('click', function(event) {
     event.preventDefault();
+    $('.poi').empty();
     const token = localStorage.getItem('token');
 
     $.ajax({
@@ -77,17 +82,25 @@
         console.log(err);
       })
       .done(type => {
-        console.log(type);
         type.savedPoi.forEach(poi => {
           var poiHtml = createItineraryHtml(poi);
-          poiView.renderType(poiHtml);
-         });
+          poiView.renderItinerary(poiHtml);
+        });
+        $('.star-rating').rating();
+        $('.star').on('click', function() {
+          let poiId = ($(this).parents('.star-rating').data('id'));
+          let star = $(this).attr('title');
+          let result = {
+            data: JSON.stringify({'stars': {'rating': star}, 'reviews': `I gave a ${star}`}),
+            id: poiId
+          }
+          poiController.sendStar(result);
+        });
       });
   });
 
   userController.addItinerary = function(ctx, next) {
-    const path = ctx.path.split('/');
-    const id = path[path.length - 1];
+    const id = ctx.hash;
     const token = localStorage.getItem('token');
 
     $.ajax({
@@ -112,8 +125,7 @@
   };
 
   userController.deleteItinerary = function(ctx, next) {
-    const path = ctx.path.split('/');
-    const id = path[path.length - 1];
+    const id = ctx.hash;
     const token = localStorage.getItem('token');
 
     $.ajax({
@@ -135,7 +147,33 @@
         $('#' + id).delay(1000).fadeOut('slow');
         $message.delay(2500).fadeOut('slow');
       });
+  };
 
+  userController.addReview = function(ctx, next) {
+    const id = ctx.hash;
+    const token = localStorage.getItem('token');
+
+    const review = $('#' + id).children('form').children('textarea').val();
+
+    $.ajax({
+      method:'PUT',
+      url: '/api/me/review/' + id,
+      headers: {
+        'content-type': 'application/json',
+        'authorization': token
+      },
+      data: JSON.stringify({ 'reviews': review })
+    })
+      .fail(err => {
+        $('#user-info').text("There was an error, please try again.").fadeIn('slow');
+        $('#user-info').delay(2500).fadeOut('slow');
+        console.log(err);
+      })
+      .done(res => {
+        $('#user-info').text("Added to your itinerary.").fadeIn('slow');
+        $('#user-info').delay(2500).fadeOut('slow');
+        console.log(res);
+      });
   };
 
   module.userController = userController;

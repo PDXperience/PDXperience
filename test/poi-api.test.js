@@ -112,6 +112,7 @@ describe('Poi:', () => {
               property: compare.property,
               address: compare.address,
               hours: compare.hours,
+              stars: compare.stars,
               _id: compare._id,
               subArea: compare.subArea,
               zip: Number(compare.zip)

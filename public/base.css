@@ -1,11 +1,15 @@
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    font-family: verdana, sans-seriff;
+    font-family: 'Lato', sans-seriff;
+    text-align:center;
 }
 
 h1 {
     color: #039;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size:3em;
+    line-height:3%;
 }
 
 .hidden {
@@ -14,9 +18,67 @@ h1 {
 
 .selected {
     font-weight: bold;
-    color: darkblue;
+    color: black;
 }
 
 a {
-    color: black;
+    color: #003399;
+    text-decoration:none;
+    font-weight:800;
+}
+
+a:hover {
+    font-weight:800;
+    color:black;
+}
+
+hr {
+    border:0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.log-menu {
+    background-color:#e5eaf4;
+    padding:1%;
+    margin:0 auto;
+}
+
+.log-menu p {
+    margin:0 auto;
+    padding-bottom:10px;
+}
+
+label {
+    padding-left:1%;
+}
+
+.find-activities {
+    display:inline-block;
+    vertical-align:middle;
+    padding:2%;
+}
+
+#itinerary-div {
+    display:none;
+}
+
+.data-divs {
+    display:inline-block;
+    vertical-align:top;
+    padding:1%;
+    margin:1%;
+    background-color:#e5eaf4;
+    width:28.33%;
+}
+
+.data-divs:hover {
+    background-color:#ccd6ea;
+}
+
+.stars {
+    display:inline-block;
+    padding-top:10px;
+    text-align:center;
+    margin:0 auto;
 }
