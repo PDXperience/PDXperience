@@ -75,9 +75,13 @@
                 <p><b>Amenities:</b> {{amenities}}</p>
                 <p><b>Child friendly:</b> {{childFriendly}}</p>
                 <form action="/review#{{_id}}" method="put">
+                    <br>
+                    <hr>
+                    <br>
                     <label for="POST-name">Add a review:</label>
+                    <br>
                     <textarea id="review-body" rows="8" cols="30" required></textarea>
-                    <input id="POST-name" type="text">
+                    <br>
                     <input type="submit" value="Save" >
                 </form>
                 <form action="/stars#{{_id}}" method="put">
