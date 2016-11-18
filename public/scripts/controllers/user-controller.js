@@ -2,6 +2,11 @@
 
   var userController = {};
 
+  function createItineraryHtml(jsonData) {
+    const template = Handlebars.compile($('#my-itinerary-template').html());
+    return template(jsonData);
+  };
+
   $('#signin-form').on('submit', function(event) {
     event.preventDefault();
     var password= $('#POST-signin-password').val();
@@ -56,12 +61,32 @@
       });
   });
 
+  $('#itinerarybutton').on('click', function(event) {
+    event.preventDefault();
+    const token = localStorage.getItem('token');
+
+    $.ajax({
+      method:'GET',
+      url: '/api/me/itineraries',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': token
+      }
+    })
+      .fail(err => {
+        console.log(err);
+      })
+      .done(type => {
+        console.log(type);
+        type.savedPoi.forEach(poi => {
+          var poiHtml = createItineraryHtml(poi);
+          poiView.renderType(poiHtml);
+         });
+      });
+  });
 
   userController.addItinerary = function(ctx, next) {
-    console.log('CONTEXT', ctx);
-
-    const path = ctx.path.split('/');
-    const id = path[path.length - 1];
+    const id = ctx.hash;
     const token = localStorage.getItem('token');
 
     $.ajax({
@@ -83,7 +108,31 @@
         $('#user-info').delay(2500).fadeOut('slow');
         console.log(res);
       });
+  };
 
+  userController.deleteItinerary = function(ctx, next) {
+    const id = ctx.hash;
+    const token = localStorage.getItem('token');
+
+    $.ajax({
+      method:'DELETE',
+      url: '/api/me/itineraries/' + id,
+      headers: {
+        'content-type': 'application/json',
+        'authorization': token
+      }
+    })
+      .fail(err => {
+        let $message = $('#itinerary-response-text');
+        $message.text("There was an error, please try again.").fadeIn('slow');
+        $message.delay(2500).fadeOut('slow');
+      })
+      .done(res => {
+        let $message = $('#itinerary-response-text');
+        $message.text("Removed from your itinerary.").fadeIn('slow');
+        $('#' + id).delay(1000).fadeOut('slow');
+        $message.delay(2500).fadeOut('slow');
+      });
 
   };
 
