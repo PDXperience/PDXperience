@@ -78,7 +78,7 @@
                 <p><b>Hours:</b> {{hours}}</p>
                 <p><b>Amenities:</b> {{amenities}}</p>
                 <p><b>Child friendly:</b> {{childFriendly}}</p>
-                <form action="/review#{{_id}}" method="put">
+                <form>
                     <br>
                     <hr>
                     <br>
@@ -86,7 +86,7 @@
                     <br>
                     <textarea id="review-body" rows="8" cols="30" required></textarea>
                     <br>
-                    <input type="submit" value="Save" >
+                    <a href="/review#{{_id}}"><input type="submit" value="Save" ></a>
                 </form>
                 <br>
                 <a href="/delete#{{_id}}"><button id="poi-completed-button" value="{{_id}}">Completed!</button></a>
