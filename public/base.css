@@ -75,3 +75,13 @@ label {
 .data-divs:hover {
     background-color:#ccd6ea;
 }
+
+.star-rating {
+    text-align:center;
+    margin:0 auto;
+}
+
+.stars {
+    text-align:center;
+    margin:0 auto;
+}
