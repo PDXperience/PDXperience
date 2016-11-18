@@ -88,6 +88,16 @@
           var poiHtml = createItineraryHtml(poi);
           poiView.renderItinerary(poiHtml);
         });
+        $('.star-rating').rating();
+        $('.star').on('click', function() {
+          let poiId = ($(this).parents('.star-rating').data('id'))
+          let star = $(this).attr('title');
+          let result = {
+            data: JSON.stringify({'stars': {'rating': star}, 'reviews': `I gave a ${star}`}),
+            id: poiId
+          }
+          poiController.sendStar(result);
+        });
       });
   });
 
