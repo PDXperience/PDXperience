@@ -10,7 +10,8 @@
     <!-- HANDLEBARS TEMPLATES GO HERE -->
     <script id="view-many-template" type="text/x-handlebars-template">
         <div class="data-divs">
-            <a href="/id#{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a>
+            <i>(Type: {{type}})</i>
             <p>Address: {{address}}, {{zip}}</p>
             <p>Hours: {{hours}}</p>
         </div>
@@ -18,7 +19,10 @@
 
     <script id="view-type-template" type="text/x-handlebars-template">
         <div class="data-divs">
-            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{avgStars}}</b>
+
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> 
+            <b>Average Stars:{{stars}}</b>
+            <br>
             <div class="star-rating" data-id="{{_id}}">
                 <input type="radio" name="example" class="rating" value="1" />
                 <input type="radio" name="example" class="rating" value="2" />
@@ -35,7 +39,9 @@
 
     <script id="view-one-template" type="text/x-handlebars-template">
         <div class="data-divs">
-            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{avgStars}}</b>
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> 
+            <b>Average Stars:{{stars}}</b>
+            <br>
             <div class="star-rating" data-id="{{_id}}">
                 <input type="radio" name="example" class="rating" value="1" />
                 <input type="radio" name="example" class="rating" value="2" />
@@ -57,7 +63,9 @@
         <div class="data-divs">
             <h3 id="itinerary-response-text"></h3>
             <div id="{{_id}}">
-                <h3>{{property}}</h3> <b>Average Stars:{{avgStars}}</b>
+                <h3>{{property}}</h3> 
+                <b>Average Stars:{{stars}}</b>
+                <br>
                 <div class="star-rating" data-id="{{_id}}">
                     <input type="radio" name="example" class="rating" value="1" />
                     <input type="radio" name="example" class="rating" value="2" />
@@ -71,15 +79,21 @@
                 <p><b>Amenities:</b> {{amenities}}</p>
                 <p><b>Child friendly:</b> {{childFriendly}}</p>
                 <form action="/review#{{_id}}" method="put">
-                    <label for="POST-name">Add a review:</label>
+                    <br>
+                    <hr>
+                    <br>
+                    <label for="POST-name"><b>Add a review:</b></label>
+                    <br>
                     <textarea id="review-body" rows="8" cols="30" required></textarea>
-                    <input id="POST-name" type="text">
+                    <br>
                     <input type="submit" value="Save" >
                 </form>
+                <br>
                 <form action="/stars#{{_id}}" method="put">
                     Rate it! (between 1 and 5):
                     <input type="number" name="quantity" min="1" max="5">
                 </form>
+                <br>
                 <a href="/delete#{{_id}}"><button id="poi-completed-button" value="{{_id}}">Completed!</button></a>
             </div>
         </div>
