@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>PDXperience</title>
     <link rel="stylesheet" type="text/css" href="./base.css">
+    <link rel="stylesheet" type="text/css" href="./scripts/vendor/rating.css">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Lato" rel="stylesheet">
+
     <!-- HANDLEBARS TEMPLATES GO HERE -->
     <script id="view-many-template" type="text/x-handlebars-template">
         <div class="data-divs">
@@ -17,6 +19,13 @@
     <script id="view-type-template" type="text/x-handlebars-template">
         <div class="data-divs">
             <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+            <div class="star-rating" data-id="{{_id}}">
+                <input type="radio" name="example" class="rating" value="1" />
+                <input type="radio" name="example" class="rating" value="2" />
+                <input type="radio" name="example" class="rating" value="3" />
+                <input type="radio" name="example" class="rating" value="4" />
+                <input type="radio" name="example" class="rating" value="5" />
+            </div>
             <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
             <p><b>Address:</b> {{address}}, {{zip}}</p>
             <p><b>Hours:</b> {{hours}}</p>
@@ -27,6 +36,13 @@
     <script id="view-one-template" type="text/x-handlebars-template">
         <div class="data-divs">
             <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+            <div class="star-rating" data-id="{{_id}}">
+                <input type="radio" name="example" class="rating" value="1" />
+                <input type="radio" name="example" class="rating" value="2" />
+                <input type="radio" name="example" class="rating" value="3" />
+                <input type="radio" name="example" class="rating" value="4" />
+                <input type="radio" name="example" class="rating" value="5" />
+            </div>
             <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
             <p><b>Address:</b> {{address}}, {{zip}}</p>
             <p><b>Hours:</b> {{hours}}</p>
@@ -37,15 +53,18 @@
         </div>
     </script>
 
-    <script id="my-stars-template" type="text/x-handlebars-template">
-        <b>my Stars:{{stars}}</b>
-    </script>
-
     <script id="my-itinerary-template" type="text/x-handlebars-template">
         <div class="data-divs">
             <h3 id="itinerary-response-text"></h3>
             <div id="{{_id}}">
                 <h3>{{property}}</h3> <b>Average Stars:{{stars}}</b>
+                <div class="star-rating" data-id="{{_id}}">
+                    <input type="radio" name="example" class="rating" value="1" />
+                    <input type="radio" name="example" class="rating" value="2" />
+                    <input type="radio" name="example" class="rating" value="3" />
+                    <input type="radio" name="example" class="rating" value="4" />
+                    <input type="radio" name="example" class="rating" value="5" />
+                </div>
                 <p><i>Type: {{type}}, Quadrant: {{subArea}}</i></p>
                 <p><b>Address:</b> {{address}}, {{zip}}</p>
                 <p><b>Hours:</b> {{hours}}</p>
@@ -145,6 +164,7 @@
 
     <!-- Scripts go here! -->
     <script src="scripts/vendor/jquery-2.1.4.js"></script>
+    <script src="scripts/vendor/rating.js"></script>
     <script src="scripts/vendor/handlebars.js"></script>
     <script src="scripts/vendor/page.js"></script>
     <!-- View Files -->
