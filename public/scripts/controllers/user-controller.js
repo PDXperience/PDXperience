@@ -29,6 +29,8 @@
     })
     .done(res => {
       localStorage.setItem('token', res.token);
+      $(this).hide();
+      $('#signin-signup').hide();
       console.log(res);
     });
   });
@@ -57,6 +59,8 @@
       })
       .done(res => {
         localStorage.setItem('token', res.token);
+        $(this).hide();
+        $('#signin-signup').hide();
         console.log(res);
       });
   });
