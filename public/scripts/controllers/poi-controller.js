@@ -5,22 +5,17 @@
   function createManyPoiHtml(jsonData) {
     const template = Handlebars.compile($('#view-many-template').html());
     return template(jsonData);
-  };
+  }
 
   function createTypeHtml(jsonData) {
     const template = Handlebars.compile($('#view-type-template').html());
     return template(jsonData);
-  };
+  }
 
   function createOnePoiHtml(jsonData) {
     const template = Handlebars.compile($('#view-one-template').html());
     return template(jsonData);
-  };
-
-  function createStarsHtml(jsonData) {
-    const template = Handlebars.compile($('#my-stars-template').html());
-    return template(jsonData);
-  };
+  }
 
 
   $('#selectmenu').on('change', function() {
@@ -36,7 +31,7 @@
     let star = Number(this.value);
     let result = JSON.stringify({'stars': [{'rating': star}]});
     poiController.sendStar(result);
-  })
+  });
 
   $('#location').on('click', function() {
     function success(position) {
@@ -72,6 +67,9 @@
   };
 
   poiController.getType = function(path) {
+
+    if (path === 'natural_area') { path = 'natural area'; }
+
     var promise = $.getJSON('/api/type/' + path);
 
     promise
@@ -83,14 +81,14 @@
         });
         $('.star-rating').rating();
         $('.star').on('click', function() {
-          let poiId = ($(this).parents('.star-rating').data('id'))
+          let poiId = ($(this).parents('.star-rating').data('id'));
           let star = $(this).attr('title');
           let result = {
             data: JSON.stringify({'stars': {'rating': star}, 'reviews': `I gave a ${star}`}),
             id: poiId
-          }
+          };
           poiController.sendStar(result);
-        })
+        });
       })
       .fail(function () {
         console.log('something went wrong trying to get the parks');
@@ -104,7 +102,7 @@
       .done(poi => {
         var poiHtml = createOnePoiHtml(poi);
         poiView.renderId(poiHtml);
-        $('.star-rating').rating()
+        $('.star-rating').rating();
       })
       .fail(function () {
         console.log('something went wrong trying to get the parks');
@@ -121,7 +119,7 @@
 
           poiView.renderType(poiHtml);
         });
-        $('.star-rating').rating()
+        $('.star-rating').rating();
       })
       .fail(function() {
         console.log('Get Geo did not work');
@@ -143,9 +141,9 @@
       console.log(err);
     })
     .done(res => {
-      console.log(res)
-    })
-  }
+      console.log(res);
+    });
+  };
 
   module.poiController = poiController;
 
