@@ -34,6 +34,7 @@
   });
 
   $('#location').on('click', function() {
+    $('.poi').empty();
     function success(position) {
       let coords = `${position.coords.latitude}/${position.coords.longitude}`;
       poiController.getGeo(coords);
