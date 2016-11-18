@@ -99,8 +99,7 @@
 
   poiController.getId = function(ctx, next) {
 
-    var promise = $.getJSON('/api' + ctx.hash);
-
+    var promise = $.getJSON('/api/id/' + ctx.hash);
     promise
       .done(poi => {
         var poiHtml = createOnePoiHtml(poi);
@@ -129,16 +128,16 @@
       });
   };
 
-  poiController.sendStar = function(ctx, next) {
+  poiController.sendStar = function(results) {
     let token = localStorage.getItem('token');
     $.ajax({
       type: 'PUT',
-      url: '/api/me/review/' + ctx.id,
+      url: '/api/me/review/' + results.id,
       headers: {
         'authorization': token,
         'content-type': 'application/json'
       },
-      data: ctx.data
+      data: results.data
     })
     .fail(err => {
       console.log(err);

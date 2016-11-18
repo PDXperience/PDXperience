@@ -5,45 +5,52 @@
     <title>PDXperience</title>
     <link rel="stylesheet" type="text/css" href="./base.css">
     <link rel="stylesheet" type="text/css" href="./scripts/vendor/rating.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Lato" rel="stylesheet">
 
     <!-- HANDLEBARS TEMPLATES GO HERE -->
     <script id="view-many-template" type="text/x-handlebars-template">
-        <a href="/id#{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
-        <p>Address: {{address}}, {{zip}}</p>
-        <p>Hours: {{hours}}</p>
+        <div class="data-divs">
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a><i>(Type: {{type}})</i>
+            <p>Address: {{address}}, {{zip}}</p>
+            <p>Hours: {{hours}}</p>
+        </div>
     </script>
 
     <script id="view-type-template" type="text/x-handlebars-template">
-        <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
-        <div class="star-rating" data-id="{{_id}}">
-        <input type="radio" name="example" class="rating" value="1" />
-        <input type="radio" name="example" class="rating" value="2" />
-        <input type="radio" name="example" class="rating" value="3" />
-        <input type="radio" name="example" class="rating" value="4" />
-        <input type="radio" name="example" class="rating" value="5" />
+        <div class="data-divs">
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+            <div class="star-rating" data-id="{{_id}}">
+                <input type="radio" name="example" class="rating" value="1" />
+                <input type="radio" name="example" class="rating" value="2" />
+                <input type="radio" name="example" class="rating" value="3" />
+                <input type="radio" name="example" class="rating" value="4" />
+                <input type="radio" name="example" class="rating" value="5" />
+            </div>
+            <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
+            <p><b>Address:</b> {{address}}, {{zip}}</p>
+            <p><b>Hours:</b> {{hours}}</p>
+            <p><a href="/add#{{_id}}">Add to my itinerary</a></p>
         </div>
-        <p><i>{{#if subArea}}Quadrant: {{subArea}}{{/if}}</i></p>
-        <p><b>Address:</b> {{address}}, {{zip}}</p>
-        <p><b>Hours:</b> {{hours}}</p>
-        <p><a href="/add#{{_id}}">Add to my itinerary</a></p>
     </script>
 
     <script id="view-one-template" type="text/x-handlebars-template">
-        <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
-        <div id="star-rating">
-        <input type="radio" name="example" class="rating" value="1" />
-        <input type="radio" name="example" class="rating" value="2" />
-        <input type="radio" name="example" class="rating" value="3" />
-        <input type="radio" name="example" class="rating" value="4" />
-        <input type="radio" name="example" class="rating" value="5" />
+        <div class="data-divs">
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{stars}}</b>
+            <div class="star-rating" data-id="{{_id}}">
+                <input type="radio" name="example" class="rating" value="1" />
+                <input type="radio" name="example" class="rating" value="2" />
+                <input type="radio" name="example" class="rating" value="3" />
+                <input type="radio" name="example" class="rating" value="4" />
+                <input type="radio" name="example" class="rating" value="5" />
+            </div>
+            <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
+            <p><b>Address:</b> {{address}}, {{zip}}</p>
+            <p><b>Hours:</b> {{hours}}</p>
+            <p><b>Amenities:</b> {{amenities}}</p>
+            <p><b>Child friendly:</b> {{childFriendly}}</p>
+            <p><b>Reviews:</b> {{reviews}}</p>
+            <p><a href="/add#{{_id}}">Add to my itinerary</a></p>
         </div>
-        <p><i>Type: {{type}}{{#if subArea}}, Quadrant: {{subArea}}{{/if}}</i></p>
-        <p><b>Address:</b> {{address}}, {{zip}}</p>
-        <p><b>Hours:</b> {{hours}}</p>
-        <p><b>Amenities:</b> {{amenities}}</p>
-        <p><b>Child friendly:</b> {{childFriendly}}</p>
-        <p><b>Reviews:</b> {{reviews}}</p>
-        <p><a href="/add#{{_id}}">Add to my itinerary</a></p>
     </script>
 
     <script id="my-stars-template" type="text/x-handlebars-template">
@@ -51,82 +58,106 @@
     </script>
 
     <script id="my-itinerary-template" type="text/x-handlebars-template">
-        <h3 id="itinerary-response-text"></h3>
-        <div id="{{_id}}">
-            <h3>{{property}}</h3> <b>Average Stars:{{stars}}</b>
-            <p><i>Type: {{type}}, Quadrant: {{subArea}}</i></p>
-            <p><b>Address:</b> {{address}}, {{zip}}</p>
-            <p><b>Hours:</b> {{hours}}</p>
-            <p><b>Amenities:</b> {{amenities}}</p>
-            <p><b>Child friendly:</b> {{childFriendly}}</p>
-            <form action="/review#{{_id}}" method="put">
-                <label for="POST-name">Add a review:</label>
-                <textarea id="review-body" rows="8" cols="30" required></textarea>
-                <input id="POST-name" type="text">
-                <input type="submit" value="Save" >
-            </form>
-            <form action="/stars#{{_id}}" method="put">
-                Rate it! (between 1 and 5):
-                <input type="number" name="quantity" min="1" max="5">
-            </form>
-            <a href="/delete#{{_id}}"><button id="poi-completed-button" value="{{_id}}">Completed!</button></a>
+        <div class="data-divs">
+            <h3 id="itinerary-response-text"></h3>
+            <div id="{{_id}}">
+                <h3>{{property}}</h3> <b>Average Stars:{{stars}}</b>
+                <div class="star-rating" data-id="{{_id}}">
+                    <input type="radio" name="example" class="rating" value="1" />
+                    <input type="radio" name="example" class="rating" value="2" />
+                    <input type="radio" name="example" class="rating" value="3" />
+                    <input type="radio" name="example" class="rating" value="4" />
+                    <input type="radio" name="example" class="rating" value="5" />
+                </div>
+                <p><i>Type: {{type}}, Quadrant: {{subArea}}</i></p>
+                <p><b>Address:</b> {{address}}, {{zip}}</p>
+                <p><b>Hours:</b> {{hours}}</p>
+                <p><b>Amenities:</b> {{amenities}}</p>
+                <p><b>Child friendly:</b> {{childFriendly}}</p>
+                <form action="/review#{{_id}}" method="put">
+                    <label for="POST-name">Add a review:</label>
+                    <textarea id="review-body" rows="8" cols="30" required></textarea>
+                    <input id="POST-name" type="text">
+                    <input type="submit" value="Save" >
+                </form>
+                <form action="/stars#{{_id}}" method="put">
+                    Rate it! (between 1 and 5):
+                    <input type="number" name="quantity" min="1" max="5">
+                </form>
+                <a href="/delete#{{_id}}"><button id="poi-completed-button" value="{{_id}}">Completed!</button></a>
+            </div>
         </div>
     </script>
 
 </head>
 <body>
-    <h1>PDXperience</h1>
-    <p>Portland's tool to get to know your city better</p>
+    <div class="log-menu">
+        <p id="signin-signup">
+            <a href="" id="signin-link">Sign In</a> &nbsp; | &nbsp;
+            <a href="" id="signup-link" class="selected">Sign Up</a>
+        </p>
 
-    <p><a href="" id="signin-link">Sign In</a> /
-        <a href="" id="signup-link" class="selected">Sign Up</a></p>
+        <div id="signup">
+            <form id="signup-form">
+                <label for="POST-signup-firstName">name:</label>
+                <input id="POST-signup-firstName" type="text">
+                <label for="POST-signup-email">email:</label>
+                <input id="POST-signup-email" type="text">
+                <label for="POST-signup-password">password:</label>
+                <input id="POST-signup-password" type="password">
+                <input type="submit" value="Login">
+            </form>
+            <div id="signup-response"></div>
+        </div>
 
-    <div id="signup">
-        <form id="signup-form">
-            <label for="POST-signup-firstName">First name:</label>
-            <input id="POST-signup-firstName" type="text">
-            <label for="POST-signup-email">email:</label>
-            <input id="POST-signup-email" type="text">
-            <label for="POST-signup-password">password:</label>
-            <input id="POST-signup-password" type="password">
-            <input type="submit" value="Login">
-        </form>
-        <div id="signup-response"></div>
+        <div id="signin">
+            <form id="signin-form">
+                <label for="POST-signin-email">email:</label>
+                <input id="POST-signin-email" type="text">
+                <label for="POST-signin-password">password:</label>
+                <input id="POST-signin-password" type="password">
+                <input type="submit" value="Login">
+            </form>
+            <div id="signin-response"></div>
+        </div>
+
+        <div id="user-info"></div>
+    </div>
+    <br>
+    <a href="/"><h1>PDXperience</h1></a>
+    <h4>Portland's tool to get to know your city better</h4>
+
+    <div class="find-activities">
+        <p>Search by activity type</p>
+
+        <select id="selectmenu">
+            <option>--Select an activity type--</option>
+            <option value="all">View All</option>
+            <option value="park">Parks</option>
+            <option value="museum">Museums</option>
+            <option value="garden">Gardens</option>
+            <option value="natural_area">Natural Areas</option>
+        </select>
     </div>
 
-    <div id="signin">
-        <form id="signin-form">
-            <label for="POST-signin-email">email:</label>
-            <input id="POST-signin-email" type="text">
-            <label for="POST-signin-password">password:</label>
-            <input id="POST-signin-password" type="password">
-            <input type="submit" value="Login">
-        </form>
-        <div id="singin-response"></div>
+    <div class="find-activities"><b>OR</b></div>
+
+    <div class="find-activities">
+        <p>Find activities near you</p>
+        <button id="location">Places near me</button>
     </div>
 
-    <div id="user-info"></div>
+    <div id="itinerary-div">
+        <p>Press button see your saved activities.</p>
+        <button id="itinerarybutton">View My Itinerary</button>
+    </div>
 
-    <p>Select an activity to get started!</p>
-
-    <select id="selectmenu">
-        <option>--Select an activity type--</option>
-        <option value="all">View All</option>
-        <option value="park">Parks</option>
-        <option value="museum">Museums</option>
-        <option value="garden">Gardens</option>
-        <option value="natural_area">Natural Areas</option>
-    </select>
-
-    <p>Press button to find activities near you.</p>
-    <button id="location">Places near me</button>
-
-    <p>Press button see your saved activities.</p>
-    <button id="itinerarybutton">View My Itinerary</button>
+    <br>
 
     <div id="all" class="poi"></div>
     <div id="type" class="poi"></div>
     <div id="id" class="poi"></div>
+    <div id="itinerary" class="poi"></div>
 
 
     <!-- Scripts go here! -->
