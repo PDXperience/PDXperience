@@ -83,10 +83,12 @@
         });
         $('.star-rating').rating();
         $('.star').on('click', function() {
-          console.log(this)
+          let poiId = ($(this).parents('.star-rating').data('id'))
           let star = $(this).attr('title');
-          console.log(star)
-          let result = JSON.stringify({'stars': {'rating': star}});
+          let result = {
+            data: JSON.stringify({'stars': {'rating': star}, 'reviews': `I gave a ${star}`}),
+            id: poiId
+          }
           poiController.sendStar(result);
         })
       })
@@ -128,7 +130,6 @@
   };
 
   poiController.sendStar = function(ctx, next) {
-    console.log(ctx, 'ctx')
     let token = localStorage.getItem('token');
     $.ajax({
       type: 'PUT',
@@ -137,7 +138,7 @@
         'authorization': token,
         'content-type': 'application/json'
       },
-      data: ctx
+      data: ctx.data
     })
     .fail(err => {
       console.log(err);
