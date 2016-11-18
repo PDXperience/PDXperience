@@ -85,7 +85,7 @@
           let poiId = ($(this).parents('.star-rating').data('id'));
           let star = $(this).attr('title');
           let result = {
-            data: JSON.stringify({'stars': {'rating': star}, 'reviews': `I gave a ${star}`}),
+            data: JSON.stringify({ 'stars': {'rating': star} }),
             id: poiId
           };
           poiController.sendStar(result);

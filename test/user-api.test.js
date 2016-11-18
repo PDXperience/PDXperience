@@ -103,10 +103,10 @@ describe('User requests:', () => {
       .catch(done);
   });
 
-  it('PUTs a review and star rating on poi', done => {
+  it('PUTs a star rating on poi', done => {
     let review = 'This park is really great';
     request
-      .put(`/api/me/review/${somePark._id}`)
+      .put(`/api/me/stars/${somePark._id}`)
       .set('authorization', token)
       .send({
         reviews: review,
@@ -125,7 +125,7 @@ describe('User requests:', () => {
           address: somePark.address,
           hours: somePark.hours,
           __v: somePark.__v,
-          reviews: [ `${review} -${user.firstName}` ],
+          reviews: [],
           stars:[{
             rating: 4,
             author: user.author,
