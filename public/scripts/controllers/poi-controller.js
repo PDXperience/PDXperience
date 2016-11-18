@@ -129,11 +129,12 @@
 
   poiController.sendStar = function(ctx, next) {
     console.log(ctx, 'ctx')
+    let token = localStorage.getItem('token');
     $.ajax({
       type: 'PUT',
-      url: '/api/me/review/582cb4b304a8fdc5a483eabf',
+      url: '/api/me/review/' + ctx.id,
       headers: {
-        'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4MmQwOWViYWIyNjYxMjU5YThhMDYzMSIsIm5hbWUiOiJHbG9yaWEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTQ3OTM0NjcyM30.C9KZHgJbm4q54wYKaWM3d1j_wi3ZtD9TY6UsIkE39mY',
+        'authorization': token,
         'content-type': 'application/json'
       },
       data: ctx
