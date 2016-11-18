@@ -21,11 +21,7 @@ describe('User requests:', () => {
   };
 
   const user = {
-<<<<<<< HEAD
-    email:'1somebody@somebody.com',
-=======
     email:'some-body@somebody.com',
->>>>>>> 62ea4bb4e25e28759f6646b646f68888b8b62050
     password:'password',
     firstName: 'Nathan',
     admin: true
