@@ -144,7 +144,7 @@
       .done(res => {
         let $message = $('#itinerary-response-text');
         $message.text("Removed from your itinerary.").fadeIn('slow');
-        $('#' + id).delay(1000).fadeOut('slow');
+        $('#' + id).parent().delay(1000).fadeOut('slow');
         $message.delay(2500).fadeOut('slow');
       });
   };
