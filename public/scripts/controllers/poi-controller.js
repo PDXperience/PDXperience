@@ -86,7 +86,7 @@
           console.log(this)
           let star = $(this).attr('title');
           console.log(star)
-          let result = JSON.stringify({'stars': [{'rating': star}]});
+          let result = JSON.stringify({'stars': {'rating': star}});
           poiController.sendStar(result);
         })
       })
@@ -142,7 +142,7 @@
       console.log(err);
     })
     .done(res => {
-      console.log('DONE')
+      console.log(res)
     })
   }
 
