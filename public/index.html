@@ -19,7 +19,9 @@
 
     <script id="view-type-template" type="text/x-handlebars-template">
         <div class="data-divs">
-            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{avgStars}}</b>
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> 
+            <b>Average Stars:{{stars}}</b>
+            <br>
             <div class="star-rating" data-id="{{_id}}">
                 <input type="radio" name="example" class="rating" value="1" />
                 <input type="radio" name="example" class="rating" value="2" />
@@ -36,7 +38,9 @@
 
     <script id="view-one-template" type="text/x-handlebars-template">
         <div class="data-divs">
-            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> <b>Average Stars:{{avgStars}}</b>
+            <a href="/id#{{_id}}"><h3>{{property}}</h3></a> 
+            <b>Average Stars:{{stars}}</b>
+            <br>
             <div class="star-rating" data-id="{{_id}}">
                 <input type="radio" name="example" class="rating" value="1" />
                 <input type="radio" name="example" class="rating" value="2" />
@@ -58,7 +62,9 @@
         <div class="data-divs">
             <h3 id="itinerary-response-text"></h3>
             <div id="{{_id}}">
-                <h3>{{property}}</h3> <b>Average Stars:{{avgStars}}</b>
+                <h3>{{property}}</h3> 
+                <b>Average Stars:{{stars}}</b>
+                <br>
                 <div class="star-rating" data-id="{{_id}}">
                     <input type="radio" name="example" class="rating" value="1" />
                     <input type="radio" name="example" class="rating" value="2" />

@@ -69,6 +69,7 @@
 
   $('#itinerarybutton').on('click', function(event) {
     event.preventDefault();
+    $('.poi').empty();
     const token = localStorage.getItem('token');
 
     $.ajax({
