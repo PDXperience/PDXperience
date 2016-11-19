@@ -28,14 +28,14 @@ is the type value of the desired attractions. Types maintained are parks, museum
 and natural areas. For each attraction, you are given property(name), address, zip, hours, subArea,
 stars, avgStars, and \_id.
   
-**https://PDXperience.herokuapp.com/api/id/:id**
+**ht&#8203;tps://PDXperience.herokuapp.com/api/id/:id**
 
 Returns an object for the specific attraction requested. The id specified in the URL of the
 RESTful request is the \_id value of the attraction. For the attraction returned, you are given
 property(name), type, address, zip, subArea, hours, amenities, childFriendly, avgStars, stars, reviews,
 and \_id.
 
-**https://PDXperience.herokuapp.com/api/zip/:zip**
+**ht&#8203;tps://PDXperience.herokuapp.com/api/zip/:zip**
 
 Returns an array of all attractions with the requested zip code. The zip specified in the URL of the
 RESTful request is the zip code for which you are searching. For each attraction, you are given
