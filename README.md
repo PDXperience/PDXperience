@@ -75,7 +75,14 @@ account.
 
 **ht&#8203;tps://PDXperience.herokuapp.com/api/auth/signup**
 
-To sign up, send a POST request to the URL above with JSON containing your email, firstName, and password.
+To sign up, send a POST request to the URL above with JSON containing:
+```
+{
+  "email": "<your email address>",
+  "password": "<your password>",
+  "firstName": "<your first name"
+}
+```
 All three of these fields are required. You will receive a token in the response.
 
 ### Signing In
@@ -89,14 +96,21 @@ in the response.
 ## RESTful Requests Requiring a User Account
 
 The following RESTful requests require a valid token to be sent in the headers. It should be formatted as
-Authorization: \<token\>.
-
+```
+Authorization: <token>
+```
 ### Adding an Item to Your Itinerary
 
 **ht&#8203;tps://PDXperience.herokuapp.com/api/me/itineraries**
 
 To add an attraction to your itinerary list, send a PUT request to the above URL with JSON in the following
-format: {"poiId": "\<\_id of the attraction\>"}. The response will be an array containing the \_id of each
+format:
+```
+{
+  "poiId": "<_id of the attraction>"
+}
+```
+The response will be an array containing the \_id of each
 attraction in your itinerary.
 
 ### Retrieving Your Itinerary
@@ -121,12 +135,14 @@ updated information for your account.
 
 To add a star rating to an attraction, send a PUT request to the above URL in which poiId refers to the \_id
 of the attraction. The request should send JSON in the following format:
+```
 {
   "stars": {
-    "rating": 4,
-    "author": "\<user.\_id\>"
+    "rating": <number between 1 and 5>,
+    "author": "<the _id for your account>"
   }
 }
+```
 The response will contain the complete updated information for the attraction.
 
 ### Adding a Review to an Attraction
@@ -135,7 +151,11 @@ The response will contain the complete updated information for the attraction.
 
 To add a review to an attraction, send a PUT request to the above URL in which poiId refers to the \_id
 of the attraction. The request should send JSON in the following format:
-{"reviews": "\<Your Review\>"}
+```
+{
+  "reviews": "<your review>"
+}
+```
 The response will contain the complete updated information for the attraction.
 
 ### Deleting Your Account
