@@ -16,10 +16,14 @@ added by the user. Also, users can remove attractions from their itinerary list 
 
 ### The following GET requests can be made without a token:
 
+#### Get All Attractions
+
 **ht&#8203;tps://PDXperience.herokuapp.com/api**
 
 Returns an array of all the attractions maintained in our database. For each attraction you are given
 property(name), type, address, zip, hours, and \_id.
+
+#### Get Attractions by Type(Parks, Museums, Gardens, and Natural Areas)
   
 **ht&#8203;tps://PDXperience.herokuapp.com/api/type/:type**
 
@@ -27,6 +31,8 @@ Returns an array of all the attractions of that type. The type specified in the 
 is the type value of the desired attractions. Types maintained are parks, museums, gardens,
 and natural areas. For each attraction, you are given property(name), address, zip, hours, subArea,
 stars, avgStars, and \_id.
+
+#### Get One Specific Attraction
   
 **ht&#8203;tps://PDXperience.herokuapp.com/api/id/:id**
 
@@ -35,17 +41,23 @@ RESTful request is the \_id value of the attraction. For the attraction returned
 property(name), type, address, zip, subArea, hours, amenities, childFriendly, avgStars, stars, reviews,
 and \_id.
 
+#### Get All Attractions in a Zip Code
+
 **ht&#8203;tps://PDXperience.herokuapp.com/api/zip/:zip**
 
 Returns an array of all attractions with the requested zip code. The zip specified in the URL of the
 RESTful request is the zip code for which you are searching. For each attraction, you are given
 property(name), type, address, zip, hours, and \_id.
+
+#### Get All Attractions within a Requested Area
  
 **ht&#8203;tps://PDXperience.herokuapp.com/api/area/:area**
 
 Returns an array of all attractions within the requested area. The area specified in the URL of the
 RESTful request is the subArea of the attractions desired. For each attraction, you are given property(name),
 type, address, zip, hours, and \_id.
+
+#### Get All Attractions within 800 Meters(Half Mile) of Specified Location
   
 **ht&#8203;tps://PDXperience.herokuapp.com/api/location/:lat/:long**
 
