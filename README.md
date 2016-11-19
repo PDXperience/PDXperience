@@ -16,12 +16,12 @@ added by the user. Also, users can remove attractions from their itinerary list 
 
 ### The following GET requests can be made without a token:
 
-**https://PDXperience.herokuapp.com/api**
+**https://&lt;i&gt;&lt;/i&gt;PDXperience.herokuapp.com/api**
 
 Returns an array of all the attractions maintained in our database. For each attraction you are given
 property(name), type, address, zip, hours, and \_id.
   
-**https://PDXperience.herokuapp.com/api/type/:type**
+**https://&lt;i&gt;&lt;/i&gt;PDXperience.herokuapp.com/api/type/:type**
 
 Returns an array of all the attractions of that type. The type specified in the URL of the RESTful request
 is the type value of the desired attractions. Types maintained are parks, museums, gardens,
