@@ -20,7 +20,7 @@ added by the user. Also, users can remove attractions from their itinerary list 
 
 **ht&#8203;tps://PDXperience.herokuapp.com/api**
 
-Returns an array of all the attractions maintained in our database. For each attraction you are given
+Returns an array of all the attractions maintained in our database. For each attraction, you are given
 property(name), type, address, zip, hours, and \_id.
 
 ### Get Attractions by Type(Parks, Museums, Gardens, and Natural Areas)
@@ -28,9 +28,8 @@ property(name), type, address, zip, hours, and \_id.
 **ht&#8203;tps://PDXperience.herokuapp.com/api/type/:type**
 
 Returns an array of all the attractions of that type. The type specified in the URL of the RESTful request
-is the type value of the desired attractions. Types maintained are parks, museums, gardens,
-and natural areas. For each attraction, you are given property(name), address, zip, hours, subArea,
-stars, avgStars, and \_id.
+is the type value of the desired attractions: park, museum, garden, and natural area. For each attraction, 
+you are given property(name), address, zip, hours, subArea, stars, avgStars, and \_id.
 
 ### Get One Specific Attraction
   
@@ -45,7 +44,7 @@ and \_id.
 
 **ht&#8203;tps://PDXperience.herokuapp.com/api/zip/:zip**
 
-Returns an array of all attractions with the requested zip code. The zip specified in the URL of the
+Returns an array of all attractions within the requested zip code. The zip specified in the URL of the
 RESTful request is the zip code for which you are searching. For each attraction, you are given
 property(name), type, address, zip, hours, and \_id.
 
@@ -57,13 +56,13 @@ Returns an array of all attractions within the requested area. The area specifie
 RESTful request is the subArea of the attractions desired. For each attraction, you are given property(name),
 type, address, zip, hours, and \_id.
 
-### Get All Attractions within 800 Meters(Half Mile) of Specified Location
+### Get All Attractions within 800 Meters(Half Mile) of a Specified Location
   
 **ht&#8203;tps://PDXperience.herokuapp.com/api/location/:lat/:long**
 
 Returns an array of all attractions within a half mile(800 meters) of the specified location. The lat
 and long specified in the URL of the RESTful request correspond to the latitude and longitude of the
-center point of the 800 meter search radius. For each attraction, returned you are given property(name),
+center point of the 800 meter search radius. For each attraction returned, you are given property(name),
 type, address, zip, hours, and \_id.
 
 ## User Account Management
@@ -80,7 +79,7 @@ To sign up, send a POST request to the URL above with JSON containing:
 {
   "email": "<your email address>",
   "password": "<your password>",
-  "firstName": "<your first name"
+  "firstName": "<your first name>"
 }
 ```
 All three of these fields are required. You will receive a token in the response.
@@ -127,7 +126,7 @@ are given property(name), type, address, zip, hours, subArea, amenities, childFr
 
 To remove an attraction from your itinerary, send a DELETE request to the above URL. The poiId specified
 in the URL is the \_id of the attraction that you want to remove. The response will contain the complete
-updated information for your account.
+updated information for your account, reflecting the removed item from your itinerary(savedPoi).
 
 ### Adding a Star Rating to an Attraction
 
@@ -143,7 +142,7 @@ of the attraction. The request should send JSON in the following format:
   }
 }
 ```
-The response will contain the complete updated information for the attraction.
+The response will contain the complete updated information for the attraction, including the added star rating.
 
 ### Adding a Review to an Attraction
 
@@ -156,7 +155,7 @@ of the attraction. The request should send JSON in the following format:
   "reviews": "<your review>"
 }
 ```
-The response will contain the complete updated information for the attraction.
+The response will contain the complete updated information for the attraction, including the added review.
 
 ### Deleting Your Account
 
