@@ -16,28 +16,32 @@ added by the user. Also, users can remove attractions from their itinerary list 
 
 The following GET requests can be made without a token:
 
-PDXperience.herokuapp.com/api
+**PDXperience.herokuapp.com/api**
+
   Returns a list of all attractions. For each attraction you are given property(name), type,
   address, zip, hours, and \_id.
   
-PDXperience.herokuapp.com/api/type/:type
+**PDXperience.herokuapp.com/api/type/:type**
+
   Returns a list all the attractions of that type. The type specified in the URL of the RESTful request
   is the type value of the desired attractions. Types maintained are parks, museums, gardens,
   and natural areas. For each attraction you are given property(name), address, zip, hours, subArea,
   stars, avgStars, and \_id.
   
-PDXperience.herokuapp.com/api/id/:id
+**PDXperience.herokuapp.com/api/id/:id**
+
   Returns the information for the specific attraction requested. The id specified in the URL of the
   RESTful request is the \_id value of the attraction. For the attraction returned you are given
   property(name), type, address, zip, subArea, hours, amenities, childFriendly, avgStars, stars, reviews,
   and \_id.
   
-PDXperience.herokuapp.com/api/area/:area
+**PDXperience.herokuapp.com/api/area/:area**
+
   Returns a list of all attractions within the requested area. The area specified in the URL of the
   RESTful request is the subArea of the attractions desired. For each attraction you are given property,
   type, address, zip, hours, and \_id.
   
-PDXperience.herokuapp.com/api/location/:lat/:long
+**PDXperience.herokuapp.com/api/location/:lat/:long**
 
   
 
