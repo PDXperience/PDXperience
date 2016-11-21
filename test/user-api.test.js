@@ -139,6 +139,45 @@ describe('User requests:', () => {
       .catch(done);
   });
 
+  it('PUTs a review on poi', done => {
+    let review = 'This park is really great';
+    request
+      .put(`/api/me/review/${somePark._id}`)
+      .set('authorization', token)
+      .send({
+        reviews: review,
+        stars: {
+          rating: 4,
+          author: user._id
+        }
+      })
+      .then(res => {
+        let poiWithRating = res.body;
+        user.author = res.body.stars[0].author;
+        let expected = {
+          _id: somePark._id,
+          property: somePark.property,
+          type: somePark.type,
+          address: somePark.address,
+          hours: somePark.hours,
+          __v: 1,
+          reviews: [
+            `${review} -${user.firstName}`
+          ],
+          stars:[{
+            rating: 4,
+            author: user.author,
+            _id: res.body.stars[0]._id
+          }],
+          amenities: []
+        };
+        assert.deepEqual(expected, poiWithRating);
+        done();
+      })
+      .catch(done);
+  });
+
+
   it('DELETEs a poi from itinerary', done => {
     request
       .delete(`/api/me/itineraries/${somePark._id}`)
