@@ -18,6 +18,7 @@ added by the user. Also, users can remove attractions from their itinerary list 
 
 ### Get All Attractions
 
+Why the zero-length space???
 **ht&#8203;tps://PDXperience.herokuapp.com/api**
 
 Returns an array of all the attractions maintained in our database. For each attraction, you are given
