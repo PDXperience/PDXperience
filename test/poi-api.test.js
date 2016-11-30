@@ -32,6 +32,8 @@ describe('Poi:', () => {
     hours: 'dawn to dusk'
   };;
 
+  // creating a test user is done in multiple files.
+  // extract to helper function in shared module
   before(done => {
     request
       .post('/api/auth/signup')

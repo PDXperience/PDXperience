@@ -12,12 +12,17 @@ If a visitor to the app signs up as a user, they are then able to add attraction
 Once an attraction is in a user's itinerary, a review and star rating for the attraction can be
 added by the user. Also, users can remove attractions from their itinerary list as they visit them.
 
+Needs to include section on dev setup, including what process.env are used.
+
 # Data API RESTful Requests
 
 ## The following GET requests can be made without a token:
 
+Use more `code` oriented docs for http api's. Lot's of different ways, check out
+http://docs.couchdb.org/en/2.0.0/http-api.html
 ### Get All Attractions
 
+Why the zero-length space???
 **ht&#8203;tps://PDXperience.herokuapp.com/api**
 
 Returns an array of all the attractions maintained in our database. For each attraction, you are given

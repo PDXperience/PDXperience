@@ -14,40 +14,29 @@ describe('Authorization:', () => {
   const request = chai.request(app);
   let firstToken = '';
 
-  it('Requires a password to signup', done => {
+  // DRY!
+  function testBadSignup(user) {
     request
       .post('/api/auth/signup')
-      .send({email:'new@somebody.com', firstName: 'first', admin: false})
+      .send(user)
       .then(res => done('Error: status should not be 200', res))
       .catch(res => {
         assert.equal(res.status, 400);
         assert.equal(res.response.text, '{"error":"Email, password, and first name are required to sign up."}');
         done();
       });
+  }
+
+  it('Requires a password to signup', done => {
+    testBadSignup({email:'new@somebody.com', firstName: 'first', admin: false});
   });
 
   it('Requires an email to signup', done => {
-    request
-      .post('/api/auth/signup')
-      .send({password:'password', firstName: 'first', admin: false})
-      .then(res => done('Error: status should not be 200', res))
-      .catch(res => {
-        assert.equal(res.status, 400);
-        assert.equal(res.response.text, '{"error":"Email, password, and first name are required to sign up."}');
-        done();
-      });
+    testBadSignup({password:'password', firstName: 'first', admin: false});
   });
 
   it('Requires a name to signup', done => {
-    request
-      .post('/api/auth/signup')
-      .send({password:'password', email: 'first@name.com', admin: false})
-      .then(res => done('Error: status should not be 200', res))
-      .catch(res => {
-        assert.equal(res.status, 400);
-        assert.equal(res.response.text, '{"error":"Email, password, and first name are required to sign up."}');
-        done();
-      });
+    testBadSignup({password:'password', email: 'first@name.com', admin: false});
   });
 
   it('Allows a new user to signup', done => {
