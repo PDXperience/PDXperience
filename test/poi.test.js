@@ -16,27 +16,26 @@ describe('Poi model', () => {
     });
   });
 
-  it('property is required', done => {
-    const poi = new Poi({
-      type: 'park'
-    });
+  // DRY:
+  function testRequired(property) {
+    it(`${property} is required`, done => {
+      const data = {
+        property: 'some place',
+        type: 'park'
+      };
+      delete data[property];
 
-    poi.validate(err => {
-      assert.isOk(err, 'property should have been required');
-      done();
-    });
-  });
+      const poi = new Poi(data);
 
-  it('type is required', done => {
-    const poi = new Poi({
-      property: 'some place'
+      poi.validate(err => {
+        assert.isOk(err, 'property should have been required');
+        done();
+      });
     });
+  }
 
-    poi.validate(err => {
-      assert.isOk(err, 'type should have been required');
-      done();
-    });  
-  });
+  testRequired('property');
+  testRequired('type');
 
   it('zip must be a number', done => {
     const poi = new Poi({
@@ -90,6 +89,7 @@ describe('Poi model', () => {
     });
   });
 
+  // nice test of model method!
   it('gets average stars for a poi', done => {
     const poi = new Poi({
       property: 'some place',

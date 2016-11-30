@@ -6,6 +6,7 @@
   "scripts": {
     "pretest": "eslint *.js",
     "test": "mocha --timeout 5000",
+    "//": "interesting, no watch script",
     "start": "node server.js"
   },
   "repository": {

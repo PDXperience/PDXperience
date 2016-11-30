@@ -9,15 +9,13 @@ const connection = require('../lib/setup-mongoose');
 
 const app = require('../lib/app');
 
-
-before( done => {
+// DRY! extract common functionality to function
+const dropDb = done => {
   const drop = () => connection.db.dropDatabase(done);
   if (connection.readyState === 1) drop();
-  else connection.on( 'open', drop );
-});
+  // retype, don't cut and paste
+  else connection.on('open', drop);
+};
 
-after( done => {
-  const drop = () => connection.db.dropDatabase(done);
-  if (connection.readyState === 1) drop();
-  else connection.on( 'open', drop );
-});
+before(dropDb);
+after(dropDb);
